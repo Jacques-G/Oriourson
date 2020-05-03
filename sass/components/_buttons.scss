@@ -5,4 +5,9 @@ button{
     background-color: $vert;
     color: $blanc;
     border-radius: 3em;
+    transform: scale(1);
+    transition: transform 400ms;
+    &:hover{
+        transform: scale(1.2);
+    }
 }
