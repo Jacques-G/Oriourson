@@ -6,6 +6,8 @@
     <meta name="description" content="Oriourson by Orinoco est une boutique en ligne de vente d'ours en peluche fait main.">
     <meta name="robots" content="index, follow">
 
+    <link href="https://fonts.googleapis.com/css2?family=Miltonian+Tattoo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
     <title>Oriourson - Vente en ligne d'ours en peluche fait main</title>
 </head>
@@ -15,16 +17,13 @@
             <figure>
                 <img src="./images/logo_orinoco1.png" alt="logo Orinoco">
             </figure>
-            <div id="form_connect">
-                <form>
-                    <label for="email">Adresse email : </label>
-                    <input id="email" name="email" type="email" required>
-                    <label for="password">Mot de passe : </label>
-                    <input id="password" name="mot de passe" type="password" required>
-                    <button class="boutton__connexion" type="submit">Me Connecter</button>
-                </form>
-                <a class="not__account" href="#">Je n'ai pas de compte</a>
-            </div>
+            <nav id="navigateur_principal">
+                <ul>
+                    <li><a href="#first_section">Accueil</a></li>
+                    <li><a href="#catalogue">Catalogue</a></li>
+                    <li><a href="#">Mon compte</a></li>
+                </ul>
+            </nav>
         </section>
     </header>
     <!--Première section titre-->
@@ -37,13 +36,19 @@
     </section>
     <!--Section vente des articles-->
     <section id="catalogue">
-        <section id="premier_ourson">
+        <!--Premier Ourson-->
+        <section id="ourson">
             <figure>
                 <img src="./images/teddy_1.jpg" alt="photo d'un premier ours en peluche">
             </figure>
             <div id="description_ourson">
-                <h3>Tommy l'Ourson</h3>
-                <p></p>
+                <h3>Touronchon</h3>
+                <p><span>Taille : </span>45cm</p>
+                <p><span>Couleur : </span>Personnalisable</p>
+                <p><span>Matière : </span>Synthétique</p>
+                <p><span>Age : </span>Dès 1 an</p>
+                <p><span>Description</span></br>Découvrez ce magnifique Ourson, fait entièrement à la main. Il fera le plus grand plaisir à votre boutchou et l'accompagnera dans toutes ses aventures.</p>
+                <p>Pour personnaliser votre Touronchon, <a class="cliquez" href="#">Cliquez ici !</a></p>
             </div>
             <div id="tarifs">
                 <div id="prix_ourson">
@@ -54,8 +59,75 @@
                 </div>
             </div>
         </section>
-
-
+        <!--Deuxième Ourson-->
+        <section id="ourson">
+            <figure>
+                <img src="./images/teddy_2.jpg" alt="photo d'un deuxième ours en peluche">
+            </figure>
+            <div id="description_ourson">
+                <h3>Toubisou</h3>
+                <p><span>Taille : </span>39cm</p>
+                <p><span>Couleur : </span>Personnalisable</p>
+                <p><span>Matière : </span>Synthétique</p>
+                <p><span>Age : </span>Dès 1 an</p>
+                <p><span>Description</span></br>Découvrez ce magnifique Ourson, fait entièrement à la main. Il fera le plus grand plaisir à votre boutchou et aime énormément les bisous</p>
+                <p>Pour personnaliser votre Toubisou, <a class="cliquez" href="#">Cliquez ici !</a></p>
+            </div>
+            <div id="tarifs">
+                <div id="prix_ourson">
+                    <p>59 €</p>
+                </div>
+                <div id="ajout_panier">
+                    <button class="button__panier" type="button">Ajouter au panier</button>
+                </div>
+            </div>
+        </section>
+        <!--Troisème Ourson-->
+        <section id="ourson">
+            <figure>
+                <img src="./images/teddy_3.jpg" alt="photo d'un deuxième ours en peluche">
+            </figure>
+            <div id="description_ourson">
+                <h3>Toucalin</h3>
+                <p><span>Taille : </span>43cm</p>
+                <p><span>Couleur : </span>Personnalisable</p>
+                <p><span>Matière : </span>Synthétique</p>
+                <p><span>Age : </span>Dès 1 an</p>
+                <p><span>Description</span></br>Toucalin est un petit Ourson, très heureux. Il aime les bisous mais surtout passe sa journée à faire des câlins à quiconque qui s'en approche.</p>
+                <p>Pour personnaliser votre Toucalin, <a class="cliquez" href="#">Cliquez ici !</a></p>
+            </div>
+            <div id="tarifs">
+                <div id="prix_ourson">
+                    <p>69 €</p>
+                </div>
+                <div id="ajout_panier">
+                    <button class="button__panier" type="button">Ajouter au panier</button>
+                </div>
+            </div>
+        </section>
+        <!--Quatrième Ourson-->
+        <section id="ourson">
+            <figure>
+                <img src="./images/teddy_4.jpg" alt="photo d'un deuxième ours en peluche">
+            </figure>
+            <div id="description_ourson">
+                <h3>Toumignon</h3>
+                <p><span>Taille : </span>45cm</p>
+                <p><span>Couleur : </span>Personnalisable</p>
+                <p><span>Matière : </span>Synthétique</p>
+                <p><span>Age : </span>Dès 1 an</p>
+                <p><span>Description</span></br>Découvre Toumignon, c'est le plus sage de tous les oursons. Mais cs sera aussi le meilleur ami de votre enfant pour son plus grand bonheur.</p>
+                <p>Pour personnaliser votre Toumignon, <a class="cliquez" href="#">Cliquez ici !</a></p>
+            </div>
+            <div id="tarifs">
+                <div id="prix_ourson">
+                    <p>49 €</p>
+                </div>
+                <div id="ajout_panier">
+                    <button class="button__panier" type="button">Ajouter au panier</button>
+                </div>
+            </div>
+        </section>
     </section>
     <footer>
 

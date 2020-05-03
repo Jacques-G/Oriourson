@@ -18,19 +18,34 @@ header{
             }
             
         }
-        & div{
-            margin: auto 20px 20px 0;
-            position: relative;
+        & nav{
+            margin: auto 30px auto 0;
 
-            & form{
-                margin: auto 0;
+            & ul{
+                margin: auto;
+                display: flex;
+                list-style: none;
+                & li{
+                    transform: scale(1);
+                    transition: transform 400ms;
+                    &:hover{
+                        transform: scale(1.2);
+                    }
+
+                    & a{
+                        text-decoration: none;
+                        color: black;
+                    }
+                }
+                
+                & li:nth-child(1){
+                    padding-right: 15px;
+                }
+                & li:nth-child(3){
+                    padding-left: 15px;
+                }
             }
 
-            & a{
-                cursor: pointer;
-                position: absolute;
-                right: 10px;
-            }
         }
     }
 }

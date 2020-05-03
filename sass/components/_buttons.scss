@@ -1,0 +1,8 @@
+@import "../utils/variables";
+
+button{
+    cursor: pointer;
+    background-color: $vert;
+    color: $blanc;
+    border-radius: 3em;
+}
