@@ -1,7 +1,7 @@
 @import "../utils/variables";
 @import "../utils/mixins";
 
-#footer{
+#footer, .footer_catalogue{
     background-color:grey;
     color: $blanc;
     display: flex;
@@ -32,5 +32,14 @@
                 }
             }
         }
+    }
+}
+.footer_catalogue--touronchon{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include petite-tablette{
+        position: relative;
     }
 }

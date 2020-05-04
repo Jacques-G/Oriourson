@@ -9,6 +9,7 @@ body{
     overflow-x: hidden;
     background-color: $fond_bandeau;
     font-family: 'Roboto', sans-serif;
+    position: relative;
     @include grande-tablette{
         margin: auto;
         width: 100vw;

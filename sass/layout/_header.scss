@@ -49,6 +49,9 @@ header{
                 & li:nth-child(3){
                     padding-left: 15px;
                 }
+                & li:last-child{
+                    padding-left: 15px;
+                }
             }
             @include mobile{
                 display: none;
