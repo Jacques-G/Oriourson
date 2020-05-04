@@ -6,7 +6,6 @@
     color: $blanc;
     display: flex;
     justify-content: space-around;
-
     & div{
 
         & h4{
@@ -19,11 +18,8 @@
                 margin-bottom: 10px;
                 padding: 0;
             }
-            
-
             & li{
                 
-
                 & a{
                     color: $blanc;
                     text-decoration: none;

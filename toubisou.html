@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Miltonian+Tattoo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <title>Oriourson - Toubisou l'ours au cent milles bisous</title>
+</head>
+<body>
+    <header>
+        <section class="petit_bandeau">
+            <figure>
+                <img src="./images/logo_orinoco1.png" alt="logo Orinoco">
+            </figure>
+            <nav id="navigateur_principal">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="index.html">Catalogue</a></li>
+                    <li><a href="#">Mon Panier</a></li>
+                    <li><a href="#">Mon compte</a></li>
+                </ul>
+            </nav>
+            <!--Essai Menu Navigateur-->
+            <a class="btn btn--navbar" id="btnMenu">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <!--Fin Essai Menu Navigateur-->
+        </section>
+    </header>
+    <section class="partie__ourson partie__ourson--ronchon">
+        <section class="PartieOurson PartieOurson--touronchon">
+            <figure>
+                <img src="./images/teddy_2.jpg" alt="photo d'un deuxième ours en peluche">
+            </figure>
+            <div class="description_ourson">
+                <h3>Toubisou</h3>
+                <p><span>Taille : </span>39cm</p>
+                <p class="select__color"><span>Couleur : </span>
+                    <label for="couleur"></label>
+                    <select name="couleur" id="couleur" required>
+                        <option value="none"></option>
+                        <option value="brun">Brun</option>
+                        <option value="blanc">Blanc</option>
+                        <option value="crème">Crème</option>
+                        <option value="rouge">Rouge</option>
+                    </select>
+                    <button class="button__couleur" type="button">Valider votre sélection</button>
+                </p>
+                <p><span>Matière : </span>Synthétique</p>
+                <p><span>Age : </span>Dès 1 an</p>
+                <p><span>Description : </span>Découvrez ce magnifique Ourson, fait entièrement à la main. Il fera le plus grand plaisir à votre boutchou et aime énormément les bisous</p>
+            </div>
+            <div class="tarifs">
+                <div class="prix_ourson">
+                    <p>59 €</p>
+                </div>
+                <div class="ajout_panier">
+                    <button class="button__panier" type="button">Ajouter au panier</button>
+                </div>
+            </div>
+        </section>
+
+    </section>
+    <footer>
+        <section class="footer_catalogue footer_catalogue--touronchon">
+            <div class="informations">
+                <h4>informations</h4>
+                <ul>
+                    <li><a href="#">Qui sommes nous ?</a></li>
+                    <li><a href="#">Mentions légales</a></li>
+                    <li><a href="#">Conditions générales</a></li>
+                </ul>
+            </div>
+            <div class="Service Clients">
+                <h4>Service Clients</h4>
+                <ul>
+                    <li><a href="#">Suivi de votre commande</a></li>
+                    <li><a href="#">Retour et remboursement</a></li>
+                    <li><a href="#">Nous Contacter</a></li>
+                </ul>
+            </div>
+            <div class="compte">
+                <h4>Mon Compte</h4>
+                <ul>
+                    <li><a href="#">Me connecter</a></li>
+                    <li><a href="#">Mes commandes</a></li>
+                    <li><a href="#">Mes adresses</a></li>
+                </ul>
+            </div>
+        </section>
+    </footer>
+</body>
+</html>

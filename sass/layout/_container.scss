@@ -73,7 +73,6 @@
     width: 100vw;
 
     & .PartieOurson{
-        margin: 20px auto;
         width: 90%;
         display: flex;
         flex-direction: row;
@@ -159,25 +158,5 @@
         
             
         }
-
-        /*&--1{
-
-            & figure{
-                background-color: $blanc;
-            }
-           
-        }
-        &--2{
-
-            & figure{
-                background-color: $blanc_creme;
-            }
-        }
-        &--3{
-
-            & figure{
-                background-color: $blanc_3;
-            }
-        }*/
     }
 }
