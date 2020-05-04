@@ -36,10 +36,13 @@
         & span{
             position: absolute;
             font-size: 15px;
+            top: 80px;
             left: 230px;
+            
             @include mobile{
                 font-size: 5px;
                 left: 120px;
+                top: 30px;
             }
         }
     }
@@ -94,7 +97,7 @@
                 box-sizing: border-box;
             }
         }
-        & #description_ourson{
+        & .description_ourson{
             width: 40%;
             padding-left: 10px;
             @include grande-tablette{
@@ -128,7 +131,7 @@
                 }
             }
         }
-        & #tarifs{
+        & .tarifs{
             width: 20%;
             display: flex;
             color: $vert;
@@ -141,7 +144,7 @@
                 width: 100%;
                 flex-direction: row;
             }
-            & #ajout_panier{
+            & .ajout_panier{
                 
                 @include petite-tablette{
                     margin: auto 0;

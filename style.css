@@ -70,12 +70,14 @@ button:hover {
 #first_section h1 span {
   position: absolute;
   font-size: 15px;
+  top: 80px;
   left: 230px;
 }
 @media all and (max-width: 640px) {
   #first_section h1 span {
     font-size: 5px;
     left: 120px;
+    top: 30px;
   }
 }
 #first_section h2 {
@@ -153,17 +155,17 @@ button:hover {
   height: auto;
   box-sizing: border-box;
 }
-#catalogue .PartieOurson #description_ourson {
+#catalogue .PartieOurson .description_ourson {
   width: 40%;
   padding-left: 10px;
 }
 @media all and (max-width: 1024px) {
-  #catalogue .PartieOurson #description_ourson {
+  #catalogue .PartieOurson .description_ourson {
     font-size: 0.75em;
   }
 }
 @media all and (max-width: 800px) {
-  #catalogue .PartieOurson #description_ourson {
+  #catalogue .PartieOurson .description_ourson {
     width: 100%;
     padding-left: 0;
     font-size: 1em;
@@ -171,24 +173,24 @@ button:hover {
   }
 }
 @media all and (max-width: 640px) {
-  #catalogue .PartieOurson #description_ourson p {
+  #catalogue .PartieOurson .description_ourson p {
     padding: 0 10px 0 10px;
   }
 }
-#catalogue .PartieOurson #description_ourson p span {
+#catalogue .PartieOurson .description_ourson p span {
   font-weight: bold;
 }
-#catalogue .PartieOurson #description_ourson p a {
+#catalogue .PartieOurson .description_ourson p a {
   text-decoration: none;
   color: black;
   transform: scale(1);
   text-decoration: underline transparent;
   transition: text-decoration 400ms;
 }
-#catalogue .PartieOurson #description_ourson p a:hover {
+#catalogue .PartieOurson .description_ourson p a:hover {
   text-decoration: underline;
 }
-#catalogue .PartieOurson #tarifs {
+#catalogue .PartieOurson .tarifs {
   width: 20%;
   display: flex;
   color: green;
@@ -199,13 +201,13 @@ button:hover {
   text-align: center;
 }
 @media all and (max-width: 800px) {
-  #catalogue .PartieOurson #tarifs {
+  #catalogue .PartieOurson .tarifs {
     width: 100%;
     flex-direction: row;
   }
 }
 @media all and (max-width: 800px) {
-  #catalogue .PartieOurson #tarifs #ajout_panier {
+  #catalogue .PartieOurson .tarifs .ajout_panier {
     margin: auto 0;
   }
 }
@@ -224,7 +226,7 @@ button:hover {
 }
 @media all and (max-width: 640px) {
   #footer div ul {
-    margin-bottom: 10px0;
+    margin-bottom: 10px;
     padding: 0;
   }
 }
