@@ -7,6 +7,12 @@ body {
   background-color: #f3e9f1;
   font-family: "Roboto", sans-serif;
 }
+@media all and (max-width: 1024px) {
+  body {
+    margin: auto;
+    width: 100vw;
+  }
+}
 
 button {
   cursor: pointer;
@@ -32,6 +38,11 @@ button:hover {
   max-width: 100%;
   height: auto;
 }
+@media all and (max-width: 1024px) {
+  #first_section figure img {
+    width: 100vw;
+  }
+}
 #first_section h1 {
   position: absolute;
   top: 100px;
@@ -39,22 +50,63 @@ button:hover {
   font-size: 70px;
   font-family: "Miltonian Tattoo", cursive;
 }
+@media all and (max-width: 1024px) {
+  #first_section h1 {
+    top: 0;
+    left: 320px;
+  }
+}
+@media all and (max-width: 800px) {
+  #first_section h1 {
+    left: 200px;
+  }
+}
+@media all and (max-width: 640px) {
+  #first_section h1 {
+    font-size: 30px;
+    left: 100px;
+  }
+}
 #first_section h1 span {
   position: absolute;
   font-size: 15px;
   left: 230px;
+}
+@media all and (max-width: 640px) {
+  #first_section h1 span {
+    font-size: 5px;
+    left: 120px;
+  }
 }
 #first_section h2 {
   position: absolute;
   top: 300px;
   left: 400px;
 }
+@media all and (max-width: 1024px) {
+  #first_section h2 {
+    top: 200px;
+    left: 160px;
+  }
+}
+@media all and (max-width: 800px) {
+  #first_section h2 {
+    top: 150px;
+    left: 30px;
+  }
+}
+@media all and (max-width: 640px) {
+  #first_section h2 {
+    font-size: 10px;
+    top: 70px;
+  }
+}
 
 /*----- SECTION OURSON -----*/
 #catalogue {
   width: 100vw;
 }
-#catalogue #ourson {
+#catalogue .PartieOurson {
   margin: 20px auto;
   width: 90%;
   display: flex;
@@ -62,33 +114,81 @@ button:hover {
   justify-content: space-between;
   border: 1px solid grey;
   box-shadow: 0.2em 0.2em 0.2em 0.2em grey;
+  /*&--1{
+
+      & figure{
+          background-color: $blanc;
+      }
+
+  }
+  &--2{
+
+      & figure{
+          background-color: $blanc_creme;
+      }
+  }
+  &--3{
+
+      & figure{
+          background-color: $blanc_3;
+      }
+  }*/
 }
-#catalogue #ourson figure {
+@media all and (max-width: 800px) {
+  #catalogue .PartieOurson {
+    flex-direction: column;
+  }
+}
+#catalogue .PartieOurson figure {
   margin: 0;
   width: 40%;
 }
-#catalogue #ourson figure img {
+@media all and (max-width: 800px) {
+  #catalogue .PartieOurson figure {
+    width: 100%;
+  }
+}
+#catalogue .PartieOurson figure img {
   width: 100%;
   height: auto;
+  box-sizing: border-box;
 }
-#catalogue #ourson #description_ourson {
+#catalogue .PartieOurson #description_ourson {
   width: 40%;
   padding-left: 10px;
 }
-#catalogue #ourson #description_ourson p span {
+@media all and (max-width: 1024px) {
+  #catalogue .PartieOurson #description_ourson {
+    font-size: 0.75em;
+  }
+}
+@media all and (max-width: 800px) {
+  #catalogue .PartieOurson #description_ourson {
+    width: 100%;
+    padding-left: 0;
+    font-size: 1em;
+    text-align: center;
+  }
+}
+@media all and (max-width: 640px) {
+  #catalogue .PartieOurson #description_ourson p {
+    padding: 0 10px 0 10px;
+  }
+}
+#catalogue .PartieOurson #description_ourson p span {
   font-weight: bold;
 }
-#catalogue #ourson #description_ourson p a {
+#catalogue .PartieOurson #description_ourson p a {
   text-decoration: none;
   color: black;
   transform: scale(1);
   text-decoration: underline transparent;
   transition: text-decoration 400ms;
 }
-#catalogue #ourson #description_ourson p a:hover {
+#catalogue .PartieOurson #description_ourson p a:hover {
   text-decoration: underline;
 }
-#catalogue #ourson #tarifs {
+#catalogue .PartieOurson #tarifs {
   width: 20%;
   display: flex;
   color: green;
@@ -98,6 +198,47 @@ button:hover {
   justify-content: space-around;
   text-align: center;
 }
+@media all and (max-width: 800px) {
+  #catalogue .PartieOurson #tarifs {
+    width: 100%;
+    flex-direction: row;
+  }
+}
+@media all and (max-width: 800px) {
+  #catalogue .PartieOurson #tarifs #ajout_panier {
+    margin: auto 0;
+  }
+}
+
+#footer {
+  background-color: grey;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+}
+#footer div h4 {
+  text-align: center;
+}
+#footer div ul {
+  list-style: none;
+}
+@media all and (max-width: 640px) {
+  #footer div ul {
+    margin-bottom: 10px0;
+    padding: 0;
+  }
+}
+#footer div ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+@media all and (max-width: 640px) {
+  #footer div ul li a {
+    text-align: center;
+    font-size: 0.7em;
+  }
+}
 
 header .petit_bandeau {
   background-color: #f3e9f1;
@@ -105,6 +246,13 @@ header .petit_bandeau {
   flex-direction: row;
   justify-content: space-between;
   height: 50px;
+  /*-----Essai Menu Navigateur-----*/
+}
+@media all and (max-width: 1024px) {
+  header .petit_bandeau {
+    width: 100vw;
+    margin: auto;
+  }
 }
 header .petit_bandeau figure {
   width: 150px;
@@ -138,6 +286,39 @@ header .petit_bandeau nav ul li:nth-child(1) {
 }
 header .petit_bandeau nav ul li:nth-child(3) {
   padding-left: 15px;
+}
+@media all and (max-width: 640px) {
+  header .petit_bandeau nav {
+    display: none;
+  }
+}
+header .petit_bandeau .btn {
+  display: inline-block;
+  cursor: pointer;
+}
+header .petit_bandeau .btn--navbar {
+  display: none;
+  float: right;
+  padding: 12px 15px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+@media all and (max-width: 640px) {
+  header .petit_bandeau .btn--navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+header .petit_bandeau .btn .icon-bar {
+  display: block;
+  width: 18px;
+  height: 3px;
+  background-color: grey;
+  border-radius: 1px;
+}
+header .petit_bandeau .btn .icon-bar + .icon-bar {
+  margin-top: 3px;
 }
 
 /*# sourceMappingURL=style.css.map */

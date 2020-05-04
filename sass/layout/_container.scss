@@ -1,4 +1,5 @@
 @import "../utils/variables";
+@import "../utils/mixins";
 
 /* -----SECTION TITRE -----*/
 #first_section{
@@ -10,6 +11,9 @@
         & img{
             max-width: 100%;
             height: auto;
+            @include grande-tablette{
+                width: 100vw;
+            }
         }
     }
     & h1{
@@ -18,10 +22,25 @@
         left: 550px;
         font-size: 70px;
         font-family: 'Miltonian Tattoo', cursive;
+        @include grande-tablette{
+            top: 0;
+            left: 320px;
+        }
+        @include petite-tablette{
+            left: 200px;
+        }
+        @include mobile{
+            font-size: 30px;
+            left: 100px;
+        }
         & span{
             position: absolute;
             font-size: 15px;
             left: 230px;
+            @include mobile{
+                font-size: 5px;
+                left: 120px;
+            }
         }
     }
 
@@ -29,6 +48,18 @@
         position: absolute;
         top: 300px;
         left: 400px;
+        @include grande-tablette{
+            top: 200px;
+            left: 160px;
+        }
+        @include petite-tablette{
+            top: 150px;
+            left: 30px;
+        }
+        @include mobile{
+            font-size: 10px;
+            top: 70px;
+        }
     }
 }
 
@@ -37,30 +68,51 @@
 #catalogue{
     width: 100vw;
 
-    & #ourson{
+    & .PartieOurson{
         margin: 20px auto;
         width: 90%;
-        
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         border: 1px solid grey ;
         box-shadow: 0.2em 0.2em 0.2em 0.2em grey;
 
+        @include petite-tablette{
+            flex-direction: column;
+        }
+
         & figure{
             margin: 0;
             width: 40%;
+            @include petite-tablette{
+                width: 100%;
+            }
 
             & img{
                 width: 100%;
                 height: auto;
+                box-sizing: border-box;
             }
         }
         & #description_ourson{
             width: 40%;
             padding-left: 10px;
+            @include grande-tablette{
+                font-size: 0.75em;
+            }
+
+            @include petite-tablette{
+                width: 100%;
+                padding-left: 0;
+                font-size: 1em;
+                text-align: center;
+            }
             & p{
 
+                @include mobile{
+                    padding: 0 10px 0 10px;
+                   
+                }
                 & span{
                     font-weight: bold;
                 }
@@ -85,6 +137,38 @@
             flex-direction: column;
             justify-content: space-around;
             text-align: center;
+            @include petite-tablette{
+                width: 100%;
+                flex-direction: row;
+            }
+            & #ajout_panier{
+                
+                @include petite-tablette{
+                    margin: auto 0;
+                }
+            }
+        
+            
         }
+
+        /*&--1{
+
+            & figure{
+                background-color: $blanc;
+            }
+           
+        }
+        &--2{
+
+            & figure{
+                background-color: $blanc_creme;
+            }
+        }
+        &--3{
+
+            & figure{
+                background-color: $blanc_3;
+            }
+        }*/
     }
 }

@@ -1,0 +1,40 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+#footer{
+    background-color:grey;
+    color: $blanc;
+    display: flex;
+    justify-content: space-around;
+
+    & div{
+
+        & h4{
+            text-align: center;
+        }
+
+        & ul{
+            list-style: none;
+            @include mobile{
+                margin-bottom: 10px0;
+                padding: 0;
+            }
+            
+
+            & li{
+                
+
+                & a{
+                    color: $blanc;
+                    text-decoration: none;
+                    font-size: .9em;
+                    @include mobile{
+                        text-align: center;
+                        font-size: 0.7em;
+                    }
+                    
+                }
+            }
+        }
+    }
+}

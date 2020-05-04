@@ -1,4 +1,5 @@
 @import "../utils/variables";
+@import "../utils/mixins";
 
 body{
     height: 100vh;
@@ -8,4 +9,8 @@ body{
     overflow-x: hidden;
     background-color: $fond_bandeau;
     font-family: 'Roboto', sans-serif;
+    @include grande-tablette{
+        margin: auto;
+        width: 100vw;
+    }
 }

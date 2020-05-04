@@ -1,4 +1,5 @@
 @import "../utils/variables";
+@import "../utils/mixins";
 
 header{
 
@@ -8,6 +9,10 @@ header{
         flex-direction: row;
         justify-content: space-between;
         height: 50px;
+        @include grande-tablette{
+            width: 100vw;
+            margin: auto;
+        }
         & figure {
             width: 150px;
             margin: auto 0;
@@ -45,7 +50,40 @@ header{
                     padding-left: 15px;
                 }
             }
+            @include mobile{
+                display: none;
+            }
 
+        }
+        /*-----Essai Menu Navigateur-----*/
+        & .btn{
+            display: inline-block;
+            cursor: pointer;
+
+            &--navbar{
+                display: none;
+                float: right;
+                padding: 12px 15px;
+                margin-right: 5px;
+                margin-left: 5px;
+                @include mobile{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                }
+            }
+
+            & .icon-bar{
+                display: block;
+                width: 18px;
+                height: 3px;
+                background-color: grey;
+                border-radius: 1px;
+
+                & + .icon-bar{
+                    margin-top: 3px;
+                }       
+            }
         }
     }
 }
