@@ -1,5 +1,12 @@
 $fond_bandeau: rgb(243,233,241);
 $blanc: rgb(255,255,255);
 $blanc_creme: rgb(233,232,230);
-$beige:rgb(202,177,146);
+$blanc_3: rgb(255,252,247);
+$beige: rgb(202,177,146);
 $vert: green;
+
+$breakpoints: (
+    grande-tablette: 1024px,
+    petite-tablette: 800px,
+    mobile: 640px,
+)

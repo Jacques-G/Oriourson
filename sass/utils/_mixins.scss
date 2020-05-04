@@ -1,0 +1,19 @@
+@import "./variables";
+
+@mixin grande-tablette {
+    @media all and(max-width: map-get($breakpoints, grande-tablette)){
+        @content;
+    }
+}
+
+@mixin petite-tablette {
+    @media all and(max-width: map-get($breakpoints, petite-tablette)){
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media all and(max-width: map-get($breakpoints, mobile)){
+        @content;
+    }
+}
