@@ -19,19 +19,16 @@
     & h1{
         position: absolute;
         top: 100px;
-        left: 550px;
+        //left: 550px;
+        left: 50%;
+        transform: translate(-50%);
         font-size: 70px;
         font-family: 'Miltonian Tattoo', cursive;
         @include grande-tablette{
             top: 0;
-            left: 320px;
-        }
-        @include petite-tablette{
-            left: 200px;
         }
         @include mobile{
             font-size: 30px;
-            left: 100px;
         }
         & span{
             position: absolute;
@@ -48,21 +45,24 @@
     }
 
     & h2{
+        font-size: 22px;
         position: absolute;
         top: 300px;
-        left: 400px;
+        left: 50%;
+        transform: translate(-50%);
+        text-align: center;
         @include grande-tablette{
             top: 200px;
-            left: 160px;
+        
         }
         @include petite-tablette{
             top: 150px;
-            left: 30px;
+            
         }
         @include mobile{
             font-size: 10px;
             top: 70px;
-            left: 40px;
+            
         }
     }
 }
@@ -70,8 +70,7 @@
 /*----- SECTION OURSON -----*/
 
 #catalogue, .partie__ourson{
-    width: 100vw;
-    
+   
     & .PartieOurson{
         width: 90%;
         display: flex;
