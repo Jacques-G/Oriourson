@@ -102,6 +102,9 @@
         & .description_ourson{
             width: 40%;
             padding-left: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
             @include grande-tablette{
                 font-size: 0.75em;
             }
@@ -112,6 +115,10 @@
                 font-size: 1em;
                 text-align: center;
             }
+            & .id_ourson{
+                display: flex;
+                flex-direction: row;
+            }   
             & p{
 
                 @include mobile{

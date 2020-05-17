@@ -109,31 +109,7 @@ body {
   border: 1px solid grey;
   border-radius: 4px;
   box-shadow: 0.2em 0.2em 0.2em 0.2em grey;
-}
-#catalogue .PartieOurson--1, .partie__ourson .PartieOurson--1 {
   margin: 20px auto;
-}
-#catalogue .PartieOurson--2, .partie__ourson .PartieOurson--2 {
-  margin: 20px auto;
-}
-#catalogue .PartieOurson--3, .partie__ourson .PartieOurson--3 {
-  margin: 20px auto;
-}
-#catalogue .PartieOurson--4, .partie__ourson .PartieOurson--4 {
-  margin: 20px auto;
-}
-#catalogue .PartieOurson--touronchon, .partie__ourson .PartieOurson--touronchon {
-  margin: 100px auto auto auto;
-}
-@media all and (max-width: 1024px) {
-  #catalogue .PartieOurson--touronchon, .partie__ourson .PartieOurson--touronchon {
-    margin-top: 400px;
-  }
-}
-@media all and (max-width: 800px) {
-  #catalogue .PartieOurson--touronchon, .partie__ourson .PartieOurson--touronchon {
-    margin: 20px auto 20px auto;
-  }
 }
 @media all and (max-width: 800px) {
   #catalogue .PartieOurson, .partie__ourson .PartieOurson {
@@ -158,6 +134,9 @@ body {
 #catalogue .PartieOurson .description_ourson, .partie__ourson .PartieOurson .description_ourson {
   width: 40%;
   padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 @media all and (max-width: 1024px) {
   #catalogue .PartieOurson .description_ourson, .partie__ourson .PartieOurson .description_ourson {
@@ -172,6 +151,10 @@ body {
     text-align: center;
   }
 }
+#catalogue .PartieOurson .description_ourson .id_ourson, .partie__ourson .PartieOurson .description_ourson .id_ourson {
+  display: flex;
+  flex-direction: row;
+}
 @media all and (max-width: 640px) {
   #catalogue .PartieOurson .description_ourson p, .partie__ourson .PartieOurson .description_ourson p {
     padding: 0 10px 0 10px;
@@ -183,12 +166,6 @@ body {
 #catalogue .PartieOurson .description_ourson p a, .partie__ourson .PartieOurson .description_ourson p a {
   text-decoration: none;
   color: black;
-  transform: scale(1);
-  text-decoration: underline transparent;
-  transition: text-decoration 400ms;
-}
-#catalogue .PartieOurson .description_ourson p a:hover, .partie__ourson .PartieOurson .description_ourson p a:hover {
-  text-decoration: underline;
 }
 #catalogue .PartieOurson .description_ourson p:nth-child(6), .partie__ourson .PartieOurson .description_ourson p:nth-child(6) {
   padding: 0;
