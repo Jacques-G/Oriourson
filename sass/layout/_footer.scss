@@ -22,8 +22,13 @@
                 
                 & a{
                     color: $blanc;
-                    text-decoration: none;
+                    text-decoration: transparent;
+                    transition: text-decoration 400ms;
                     font-size: .9em;
+                    &:hover{
+                        text-decoration: underline;
+                    }
+
                     @include mobile{
                         text-align: center;
                         font-size: 0.7em;
@@ -32,14 +37,5 @@
                 }
             }
         }
-    }
-}
-.footer_catalogue--touronchon{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    @include petite-tablette{
-        position: relative;
     }
 }

@@ -15,7 +15,7 @@ body {
   }
 }
 
-.button__panier {
+.button__personnalisation {
   cursor: pointer;
   background-color: green;
   color: white;
@@ -23,7 +23,7 @@ body {
   transform: scale(1);
   transition: transform 400ms;
 }
-.button__panier:hover {
+.button__personnalisation:hover {
   transform: scale(1.2);
 }
 
@@ -127,9 +127,8 @@ body {
 }
 #catalogue .PartieOurson figure img, .partie__ourson .PartieOurson figure img {
   width: 100%;
-  height: auto;
-  border-radius: 4px;
-  box-sizing: border-box;
+  height: 100%;
+  border-radius: 4px 0 0 4px;
 }
 #catalogue .PartieOurson .description_ourson, .partie__ourson .PartieOurson .description_ourson {
   width: 40%;
@@ -192,6 +191,18 @@ body {
     flex-direction: row;
   }
 }
+#catalogue .PartieOurson .tarifs .ajout_panier p, .partie__ourson .PartieOurson .tarifs .ajout_panier p {
+  transform: scale(1);
+  transition: transform 400ms;
+}
+#catalogue .PartieOurson .tarifs .ajout_panier p:hover, .partie__ourson .PartieOurson .tarifs .ajout_panier p:hover {
+  transform: scale(1.2);
+}
+#catalogue .PartieOurson .tarifs .ajout_panier a, .partie__ourson .PartieOurson .tarifs .ajout_panier a {
+  text-decoration: none;
+  color: green;
+  font-size: 0.4em;
+}
 @media all and (max-width: 800px) {
   #catalogue .PartieOurson .tarifs .ajout_panier, .partie__ourson .PartieOurson .tarifs .ajout_panier {
     margin: auto 0;
@@ -223,25 +234,17 @@ body {
 }
 #footer div ul li a, .footer_catalogue div ul li a {
   color: white;
-  text-decoration: none;
+  text-decoration: transparent;
+  transition: text-decoration 400ms;
   font-size: 0.9em;
+}
+#footer div ul li a:hover, .footer_catalogue div ul li a:hover {
+  text-decoration: underline;
 }
 @media all and (max-width: 640px) {
   #footer div ul li a, .footer_catalogue div ul li a {
     text-align: center;
     font-size: 0.7em;
-  }
-}
-
-.footer_catalogue--touronchon {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-@media all and (max-width: 800px) {
-  .footer_catalogue--touronchon {
-    position: relative;
   }
 }
 
