@@ -2,10 +2,10 @@
 
 /*----- CONSTANTES -----*/
 const fondPhotoOurson = document.getElementById('fond-photo-ourson');
-
 const catalogue = document.getElementById('catalogue');
 
 /*----- FUNCTIONS -----*/
+
 function insertImageUrl(section, imageTeddies){ 
     const newFigure = document.createElement('figure');
     section.appendChild(newFigure);
@@ -54,7 +54,7 @@ function insertPrice(div3, priceTeddies){
     newDiv4.appendChild(newP5);
     newP5.innerHTML = priceTeddies;
 }
-function insertLienPerso(div3){
+function insertLienPerso(div3, idLienTeddies){
     const newDiv5 = document.createElement('div');
     div3.appendChild(newDiv5);
     newDiv5.className = 'ajout_panier';
@@ -63,11 +63,13 @@ function insertLienPerso(div3){
     const newA = document.createElement('a');
     newP6.appendChild(newA);
     newA.className = 'lien_page_product';
-    newA.setAttribute('href', './product.html');
+    newA.setAttribute('href', './product.html?id=' + idLienTeddies);
     newA.innerHTML = 'Personnaliser le !';
 }
 
-/*------ REQUETTE GET -----*/
+
+
+/*------ REQUETE GET -----*/
 let recupHttp = new XMLHttpRequest();
 recupHttp.onreadystatechange = function() {
     if(this.readyState == XMLHttpRequest.DONE && this.status == 200) {
@@ -78,6 +80,7 @@ recupHttp.onreadystatechange = function() {
 
         for(let i = 0; i < response.length; i++) {
 
+      
             const newSection = document.createElement('section');
             catalogue.appendChild(newSection);
             newSection.className = 'PartieOurson';
@@ -93,17 +96,11 @@ recupHttp.onreadystatechange = function() {
             newSection.appendChild(newDiv3);
             newDiv3.className = 'tarifs';
             insertPrice(newDiv3, response[i].price + ' ' + '€');
-            insertLienPerso(newDiv3);
+            insertLienPerso(newDiv3, response[i]._id);
             
         }
-        /*
-        const linkPageProduct = document.getElementsByClassName('lien_page_product');
-        console.log(linkPageProduct);
-        const firstLink = linkPageProduct[0]; 
-        */
-     
+    }
 }
-
 
 recupHttp.open('GET', 'http://localhost:3000/api/teddies');
 recupHttp.send();
