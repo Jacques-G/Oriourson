@@ -96,13 +96,12 @@ recupHttp.onreadystatechange = function() {
             insertLienPerso(newDiv3);
             
         }
-        //const lienPageProduct = document.getElementsByClassName('lien_page_product');
-        //lienPageProduct.addEventListener('onpageshow', function() {
-
-
-        //});
-       
-    }
+        /*
+        const linkPageProduct = document.getElementsByClassName('lien_page_product');
+        console.log(linkPageProduct);
+        const firstLink = linkPageProduct[0]; 
+        */
+     
 }
 
 

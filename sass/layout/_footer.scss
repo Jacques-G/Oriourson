@@ -6,6 +6,13 @@
     color: $blanc;
     display: flex;
     justify-content: space-around;
+    
+    &--product{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
     & div{
 
         & h4{

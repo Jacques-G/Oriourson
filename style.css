@@ -220,6 +220,12 @@ body {
   display: flex;
   justify-content: space-around;
 }
+#footer--product, .footer_catalogue--product {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 #footer div h4, .footer_catalogue div h4 {
   text-align: center;
 }
