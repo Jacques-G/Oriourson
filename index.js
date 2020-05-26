@@ -100,7 +100,4 @@ recupHttp.onreadystatechange = function() {
             
         }
     }
-}
 
-recupHttp.open('GET', 'http://localhost:3000/api/teddies');
-recupHttp.send();

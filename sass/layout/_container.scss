@@ -180,13 +180,78 @@
         }
     }
 }
-/*-----Page Touronchon-----*/
+/*-----Page Product-----*/
 
-.select__color{
+#page_product{
 
-    & select{
+    & .onlyTeddy{
+        width: 90%;
+        border: 1px solid grey ;
+        border-radius: 4px;
+        box-shadow: 0.2em 0.2em 0.2em 0.2em grey;
+        margin: 20px auto;
 
-        margin: 0 10px;
+        & figure{
+            margin: 0;
+            width: 100%;
+
+            & img{
+                width: 100%;
+                height: auto;
+                border-radius: 4px 4px 0 0;
+
+            }
+        }
+        & .description_Teddy{
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+
+            & h3{
+                text-align: center;
+            }
+            & .id_ourson{
+                display: flex;
+                justify-content: center;
+
+                & span{
+                    font-weight: bold;
+                }
+                
+            }
+            & .labelForColor{
+                margin: auto;
+                
+                & label{
+                    font-weight: bold;
+
+                    & select{
+                        width: 200px;
+                        align-items: center;
+
+                        & option{
+                            margin: auto;
+                            align-items: center;
+                        }
+                    }
+                }
+            }
+
+            & .divDescript{
+                text-align: center;;
+            }
+        }
     }
-    
+    & .divTarifs{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        & .prixTeddy{
+            color: $vert;
+            font-weight: bold;
+            font-size: 40px;
+        }
+    }
 }

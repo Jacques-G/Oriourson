@@ -27,6 +27,23 @@ body {
   transform: scale(1.2);
 }
 
+.boutonPanier {
+  margin: auto 0;
+  cursor: pointer;
+  background-color: green;
+  color: white;
+  height: 40px;
+  transform: scaleZ(1);
+  transition: transform 400ms, color 400ms, background-color 400ms;
+}
+.boutonPanier:hover {
+  color: green;
+  background-color: white;
+}
+.boutonPanier:focus {
+  transform: scaleZ(0.7);
+}
+
 /* -----SECTION TITRE -----*/
 #first_section {
   position: relative;
@@ -209,9 +226,65 @@ body {
   }
 }
 
-/*-----Page Touronchon-----*/
-.select__color select {
-  margin: 0 10px;
+/*-----Page Product-----*/
+#page_product .onlyTeddy {
+  width: 90%;
+  border: 1px solid grey;
+  border-radius: 4px;
+  box-shadow: 0.2em 0.2em 0.2em 0.2em grey;
+  margin: 20px auto;
+}
+#page_product .onlyTeddy figure {
+  margin: 0;
+  width: 100%;
+}
+#page_product .onlyTeddy figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px 4px 0 0;
+}
+#page_product .onlyTeddy .description_Teddy {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+#page_product .onlyTeddy .description_Teddy h3 {
+  text-align: center;
+}
+#page_product .onlyTeddy .description_Teddy .id_ourson {
+  display: flex;
+  justify-content: center;
+}
+#page_product .onlyTeddy .description_Teddy .id_ourson span {
+  font-weight: bold;
+}
+#page_product .onlyTeddy .description_Teddy .labelForColor {
+  margin: auto;
+}
+#page_product .onlyTeddy .description_Teddy .labelForColor label {
+  font-weight: bold;
+}
+#page_product .onlyTeddy .description_Teddy .labelForColor label select {
+  width: 200px;
+  align-items: center;
+}
+#page_product .onlyTeddy .description_Teddy .labelForColor label select option {
+  margin: auto;
+  align-items: center;
+}
+#page_product .onlyTeddy .description_Teddy .divDescript {
+  text-align: center;
+}
+#page_product .divTarifs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+#page_product .divTarifs .prixTeddy {
+  color: green;
+  font-weight: bold;
+  font-size: 40px;
 }
 
 #footer, .footer_catalogue {
@@ -219,12 +292,6 @@ body {
   color: white;
   display: flex;
   justify-content: space-around;
-}
-#footer--product, .footer_catalogue--product {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }
 #footer div h4, .footer_catalogue div h4 {
   text-align: center;
