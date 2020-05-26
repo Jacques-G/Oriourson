@@ -75,12 +75,8 @@ recupHttp.onreadystatechange = function() {
     if(this.readyState == XMLHttpRequest.DONE && this.status == 200) {
         let response = JSON.parse(this.responseText);
         console.log(response);
-
         fondPhotoOurson.setAttribute('src', 'http://localhost:3000/images/teddy_5.jpg');
-
         for(let i = 0; i < response.length; i++) {
-
-      
             const newSection = document.createElement('section');
             catalogue.appendChild(newSection);
             newSection.className = 'PartieOurson';
@@ -97,7 +93,9 @@ recupHttp.onreadystatechange = function() {
             newDiv3.className = 'tarifs';
             insertPrice(newDiv3, response[i].price + ' ' + '€');
             insertLienPerso(newDiv3, response[i]._id);
-            
+            console.log(i);
         }
     }
-
+}
+recupHttp.open('GET', 'http://localhost:3000/api/teddies');
+recupHttp.send()
