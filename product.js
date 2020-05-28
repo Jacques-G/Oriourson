@@ -5,14 +5,16 @@ const url = new URL(str);
 const idUrl = url.searchParams.get("id");
 //console.log(idUrl);
 
-////////////////////// REQUETTE GET //////////////////////
+////////////////////// CONSTANTES //////////////////////
 
+////////////////////// REQUETE GET //////////////////////
+console.log(localStorage);
 let recoverHttp = new XMLHttpRequest(); 
 recoverHttp.onreadystatechange = function() {
     if(this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-        let response = JSON.parse(this.responseText);
+        const response = JSON.parse(this.responseText);
 
-        const pageProduct = document.getElementById('page_product')
+        const pageProduct = document.getElementById('page_product');
         const mainSection = document.createElement('section');
         pageProduct.appendChild(mainSection);
         mainSection.className = 'onlyTeddy';
@@ -23,13 +25,38 @@ recoverHttp.onreadystatechange = function() {
         insertName(teddyDescription, response);
         insertId(teddyDescription, response);
         insertColor(teddyDescription,response.colors);
+        const chooseColor = document.querySelector('select');
+        chooseColor.addEventListener('change', function(e) { //evenement pour voir la couloir choisi
+            console.log(chooseColor.value);
+        })
         insertDescription(teddyDescription, response);
         insertButtonCart(mainSection, response);
+
+        let teddiesInCArt = [];
         
-        console.log(response.colors)
+            
+        /////////// EVENEMENTS ///////////
+        const addCart = document.querySelector('button');
+        addCart.addEventListener('click', function(e) { //evenement 'click' pour l'envoi au local storage
+            
+            e.preventDefault();
+            let teddiesChoosen = {
+                picture: response.imageUrl,
+                firsName: response.name,
+                theId: response._id,
+                color: chooseColor.value,
+                price: response.price,
+            }
+            teddiesInCArt.push(teddiesChoosen);
+            console.log(teddiesInCArt);
+            localStorage.setItem('product', JSON.stringify(teddiesInCArt)); //ajout au "storage" des articles choisis
+            alert('Produit ajouté au panier');
+            console.log(localStorage);
+        })    
         
     } 
 }
+
 recoverHttp.open('GET', 'http://localhost:3000/api/teddies/' + idUrl);
 recoverHttp.send();
 
@@ -40,7 +67,7 @@ function err() {
     const divError = document.createElement('div');
     pageProduct.appendChild(divError);
     divError.className = 'div_error';
-    divError.innerHTML = 'Il y a eu un petit soucis !'
+    divError.innerHTML = 'Il y a eu un petit soucis !';
 }
 function insertPicture(section, teddy) {
     const newFigure = document.createElement('figure');
@@ -67,7 +94,7 @@ function insertId(description, teddy) {
     divId.appendChild(paragraphId);
     paragraphId.innerHTML = teddy._id;
 }
-function insertColor(description, teddy) {
+function insertColor(description, teddyColors) {
     const divColor = document.createElement('div');
     description.appendChild(divColor);
     divColor.className ="labelForColor"; 
@@ -76,18 +103,18 @@ function insertColor(description, teddy) {
     labelColor.innerHTML = 'Sélectionner votre Couleur préférée : ';
     const selectColor = document.createElement('select');
     labelColor.appendChild(selectColor);
-    selectColor.className = 'choose_color';
+    selectColor.id = 'choose_color';
     selectColor.setAttribute('required', '');
+    
+    
     const firstOption = document.createElement('option');
     selectColor.appendChild(firstOption);
     firstOption.innerHTML = "Faites votre choix";
-    for(let i = 0; i < teddy.length; i +=1){
+    for(let i = 0; i < teddyColors.length; i +=1){
         const secondOption = document.createElement('option');
         selectColor.appendChild(secondOption);
-        secondOption.setAttribute('value', teddy[i]);
-        secondOption.innerHTML = teddy[i];
-        console.log(i);
-        
+        secondOption.setAttribute('value', teddyColors[i]);
+        secondOption.innerHTML = teddyColors[i];
     }
 }
 function insertDescription(description, teddy) {

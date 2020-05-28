@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   height: 100vh;
   width: 100vw;
@@ -42,6 +43,37 @@ body {
 }
 .boutonPanier:focus {
   transform: scaleZ(0.7);
+}
+
+#divDelete {
+  text-align: center;
+}
+#divDelete #deleteButton {
+  cursor: pointer;
+  margin-top: 20px;
+  background-color: #f3e9f1;
+  color: red;
+  height: 40px;
+  width: 300px;
+  transition: color 400ms, background-color 400ms;
+}
+#divDelete #deleteButton:hover {
+  color: #f3e9f1;
+  background-color: red;
+}
+
+#confirm_order {
+  cursor: pointer;
+  margin: 30px 0;
+  width: 300px;
+  height: 40px;
+  color: green;
+  background-color: #f3e9f1;
+  transition: color 400ms, background-color 400ms;
+}
+#confirm_order:hover {
+  color: #f3e9f1;
+  background-color: green;
 }
 
 /* -----SECTION TITRE -----*/
@@ -285,6 +317,79 @@ body {
   color: green;
   font-weight: bold;
   font-size: 40px;
+}
+
+/* ------PAGE PANIER----- */
+#page_panier #monPanier {
+  width: 90%;
+  border: 1px solid grey;
+  border-radius: 4px;
+  box-shadow: 0.2em 0.2em 0.2em 0.2em grey;
+  margin: 20px auto;
+}
+#page_panier #monPanier #infoPanier h2 {
+  text-align: center;
+}
+#page_panier #monPanier #infoPanier #detailCommande {
+  margin-bottom: 20px;
+}
+#page_panier #monPanier #infoPanier #detailCommande #titreCommande {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+#page_panier #monPanier #infoPanier #detailCommande #titreCommande #nomCommande, #page_panier #monPanier #infoPanier #detailCommande #titreCommande #couleurCommande, #page_panier #monPanier #infoPanier #detailCommande #titreCommande #quantitéCommande, #page_panier #monPanier #infoPanier #detailCommande #titreCommande #prixCommande {
+  font-weight: bold;
+  width: 33%;
+  text-align: center;
+}
+#page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 10px;
+}
+#page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailName, #page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailColor, #page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailNumber, #page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailPrice {
+  width: 25%;
+  text-align: center;
+  font-size: 0.8em;
+}
+#page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailName #selectNumberOrTeddies, #page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailColor #selectNumberOrTeddies, #page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailNumber #selectNumberOrTeddies, #page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailPrice #selectNumberOrTeddies {
+  width: 100px;
+}
+#page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailName #selectNumberOrTeddies option, #page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailColor #selectNumberOrTeddies option, #page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailNumber #selectNumberOrTeddies option, #page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailPrice #selectNumberOrTeddies option {
+  margin: auto;
+}
+#page_panier #monPanier #infoPanier #detailCommande #divTotal {
+  width: 100%;
+}
+#page_panier #monPanier #infoPanier #detailCommande #divTotal #totalPrice {
+  width: 66%;
+  text-align: right;
+  font-weight: bold;
+}
+#page_panier #monPanier #infoPanier #detailCommande #divTotal #totalPriceCalcul {
+  width: 25%;
+}
+#page_panier #monPanier #div_inform_form #paragraph_inform {
+  margin: 30px 0;
+  text-align: center;
+}
+#page_panier #monPanier #my_form #div_form_first_name, #page_panier #monPanier #my_form #div_form_name, #page_panier #monPanier #my_form #div_form_address, #page_panier #monPanier #my_form #div_form_city, #page_panier #monPanier #my_form #div_form_email {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+}
+#page_panier #monPanier #my_form #div_form_first_name label, #page_panier #monPanier #my_form #div_form_name label, #page_panier #monPanier #my_form #div_form_address label, #page_panier #monPanier #my_form #div_form_city label, #page_panier #monPanier #my_form #div_form_email label {
+  padding-left: 5%;
+}
+#page_panier #monPanier #my_form #div_form_first_name input, #page_panier #monPanier #my_form #div_form_first_name textarea, #page_panier #monPanier #my_form #div_form_name input, #page_panier #monPanier #my_form #div_form_name textarea, #page_panier #monPanier #my_form #div_form_address input, #page_panier #monPanier #my_form #div_form_address textarea, #page_panier #monPanier #my_form #div_form_city input, #page_panier #monPanier #my_form #div_form_city textarea, #page_panier #monPanier #my_form #div_form_email input, #page_panier #monPanier #my_form #div_form_email textarea {
+  width: 90%;
+  margin: 0 auto;
+}
+#page_panier #monPanier #my_form #div_confirm {
+  text-align: center;
 }
 
 #footer, .footer_catalogue {

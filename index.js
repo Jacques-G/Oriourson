@@ -94,8 +94,10 @@ recupHttp.onreadystatechange = function() {
             insertPrice(newDiv3, response[i].price + ' ' + '€');
             insertLienPerso(newDiv3, response[i]._id);
             console.log(i);
+            
         }
     }
 }
 recupHttp.open('GET', 'http://localhost:3000/api/teddies');
 recupHttp.send()
+console.log(localStorage);

@@ -255,3 +255,109 @@
         }
     }
 }
+/* ------PAGE PANIER----- */
+
+#page_panier {
+
+    & #monPanier {
+        width: 90%;
+        border: 1px solid grey ;
+        border-radius: 4px;
+        box-shadow: 0.2em 0.2em 0.2em 0.2em grey;
+        margin: 20px auto;
+
+        & #infoPanier{
+
+            & h2 {
+                text-align: center;
+
+            }
+
+            & #detailCommande{
+                margin-bottom: 20px;
+
+                & #titreCommande{
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-around;
+                    margin-bottom: 20px;
+
+                    & #nomCommande, #couleurCommande, #quantitéCommande, #prixCommande{
+                        font-weight: bold;
+                        width: 33%;
+                        text-align: center;
+                    }
+                }
+                
+                & .detailOursonAchat{
+                    display: flex;
+                    justify-content: space-around;
+                    width: 100%;
+                    margin-bottom: 10px;
+                    
+
+                    & #myDetailName, #myDetailColor, #myDetailNumber, #myDetailPrice{
+                        width: 25%;
+                        text-align: center;
+                        font-size: .8em;
+
+                        & #selectNumberOrTeddies{
+                            width: 100px;
+
+                             option{
+                                 margin: auto;
+                             }
+                        }
+                    }
+
+                }
+
+                & #divTotal{
+                    width: 100%;
+
+                    & #totalPrice{
+                        width: 66%;
+                        text-align: right;
+                        font-weight: bold;
+                    }
+
+                    & #totalPriceCalcul{
+                        width: 25%;
+
+                    }
+                }
+            }
+            
+        }
+        & #div_inform_form{
+
+            & #paragraph_inform{
+                margin: 30px 0 ;
+                text-align: center;
+            }
+        }
+        & #my_form{
+
+            & #div_form_first_name, #div_form_name, #div_form_address, #div_form_city, #div_form_email{
+                display: flex;
+                flex-direction: column;
+                padding-bottom: 10px;
+                
+                & label{
+                    padding-left: 5%;
+                }
+
+                & input, textarea{
+                    width: 90%;
+                    margin: 0 auto;
+                }
+
+            }
+
+            & #div_confirm{
+                text-align: center;
+ 
+            }
+        }
+    }
+}
