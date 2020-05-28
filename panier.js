@@ -5,6 +5,8 @@ const detailCart = document.getElementById('detailCommande');
 const detailBuy = document.createElement('div');
 detailCart.appendChild(detailBuy);
 
+//////////////////// RECUP DU LOCAL STORAGE ////////////////////
+
 //////////////////// FUNCTIONS ////////////////////
 
 /*----- fonction pour panier vide -----*/
@@ -29,7 +31,7 @@ const myCommand = function() {
         const myDetailName = document.createElement('div');
         myDetail.appendChild(myDetailName);
         myDetailName.id = 'myDetailName';
-        myDetailName.innerHTML = localStorage.getItem('product');
+        myDetailName.innerHTML = localStorage.getItem('product', );
         
         const myDetailNumber = document.createElement('label');
         myDetail.appendChild(myDetailNumber);

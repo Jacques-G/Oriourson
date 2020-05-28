@@ -34,22 +34,20 @@ recoverHttp.onreadystatechange = function() {
 
         let teddiesInCArt = [];
         
-            
+        
         /////////// EVENEMENTS ///////////
         const addCart = document.querySelector('button');
         addCart.addEventListener('click', function(e) { //evenement 'click' pour l'envoi au local storage
-            
-            e.preventDefault();
-            let teddiesChoosen = {
-                picture: response.imageUrl,
-                firsName: response.name,
-                theId: response._id,
-                color: chooseColor.value,
-                price: response.price,
-            }
+        let teddiesChoosen = {
+            picture: response.imageUrl,
+            firsName: response.name,
+            theId: response._id,
+            color: chooseColor.value,
+            price: response.price,
+        }
             teddiesInCArt.push(teddiesChoosen);
             console.log(teddiesInCArt);
-            localStorage.setItem('product', JSON.stringify(teddiesInCArt)); //ajout au "storage" des articles choisis
+            localStorage.setItem('product', teddiesInCArt); //ajout au "storage" des articles choisis
             alert('Produit ajouté au panier');
             console.log(localStorage);
         })    
