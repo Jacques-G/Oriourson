@@ -5,6 +5,9 @@ const detailCart = document.getElementById('detailCommande');
 const detailBuy = document.createElement('div');
 detailCart.appendChild(detailBuy);
 
+const teddiesAdded_json = localStorage.getItem('product');
+const teddiesAdded = JSON.parse(teddiesAdded_json);
+
 //////////////////// RECUP DU LOCAL STORAGE ////////////////////
 
 //////////////////// FUNCTIONS ////////////////////
@@ -22,17 +25,35 @@ const cartEmpty = function() {
 }
 /*------ fonction pour alimenter le tableau de commande -----*/
 
-const myCommand = function() {
-    for(let i = 0; i < localStorage.length; i++) {
-    
+const myCommand = function(selectNumberOrTeddies) {
+
+    for(let i in teddiesAdded) {
         const myDetail = document.createElement('div');
         detailBuy.appendChild(myDetail);
         myDetail.className = 'detailOursonAchat'
         const myDetailName = document.createElement('div');
         myDetail.appendChild(myDetailName);
         myDetailName.id = 'myDetailName';
-        myDetailName.innerHTML = localStorage.getItem('product', );
+        const figPictureCart = document.createElement('figure');
+        myDetailName.appendChild(figPictureCart);
+        figPictureCart.id= 'fig_pic_cart';
+        const imgPictureCart = document.createElement('img');
+        figPictureCart.appendChild(imgPictureCart);
+        imgPictureCart.setAttribute('src', teddiesAdded[i].picture);
+        console.log(teddiesAdded);
+    
+        const divNameCart = document.createElement('div');
+        myDetailName.appendChild(divNameCart);
+        divNameCart.id= 'div_name_cart';
+        divNameCart.innerHTML = teddiesAdded[i].firstName;
+        // Partie Choix Couleur
+        const divColor = document.createElement('div');
+        myDetail.appendChild(divColor);
+        divColor.id = 'myDetailColor';
+        divColor.innerHTML = teddiesAdded[i].color;
+
         
+        //Partie Choix du nombre
         const myDetailNumber = document.createElement('label');
         myDetail.appendChild(myDetailNumber);
         myDetailNumber.id = 'myDetailNumber';
@@ -60,14 +81,27 @@ const myCommand = function() {
         fourthOption.setAttribute('value', '4');
         fourthOption.innerHTML = '4';
 
-        const selectNumberOrTeddies = document.getElementById('selectNumberOrTeddies');
-        selectNumberOrTeddies.addEventListener('change', function(e) {
-            console.log(selectNumberOrTeddies.value);
+        //Partie Prix 
+        const myDetailPrice = document.createElement('div');
+        myDetail.appendChild(myDetailPrice);
+        myDetailPrice.id = 'myDetailPrice';
+        myDetailPrice.innerHTML = teddiesAdded[i].price + ' ' + '€';
 
+        const selectNumberOrTeddies = document.getElementById('selectNumberOrTeddies');
+        selectNumberOrTeddies.addEventListener('change', function(e) { // Calcul des prix des oursons en fonction de la quantité choisi
+            
+
+            e.stopImmediatePropagation();
+            let qty = selectNumberOrTeddies.value;
+            let teddyPrice = teddiesAdded[i].price;
+            myDetailPrice.innerHTML = (qty * teddyPrice) + ' ' + '€';
+            
+            
+            
         });
     
     }
-    
+    // Partie Total Commande
     const divTotal = document.createElement('div');
     detailCart.appendChild(divTotal);
     divTotal.id = 'divTotal';
@@ -78,8 +112,21 @@ const myCommand = function() {
     const totalPriceCalcul = document.createElement('div');
     divTotal.appendChild(totalPriceCalcul);
     totalPriceCalcul.id = 'totalPriceCalcul';
-    totalPriceCalcul.innerHTML = '';
 
+    let priceTeddies = [];
+    
+    for(let i in teddiesAdded) {
+        let teddyInCart = {
+            price: teddiesAdded.price,
+            quantity: selectNumberOrTeddies,
+        }
+        priceTeddies.push(teddyInCart[i]);
+        
+    }
+    console.log(priceTeddies);
+        
+    
+ 
     const buttonCart = document.createElement('button');
     const divButton = document.createElement('div');
     detailCart.appendChild(divButton);
@@ -199,25 +246,25 @@ function addForm(data) {
 
     const confirmOrder = document.getElementById('confirm_order');
     confirmOrder.addEventListener('click', function(e) {
-    e.preventDefault();
-    let contact = {
-        firstName: inputFirstName.value,
-        lastName: inputName.value,
-        address: textAreaAddress.value,
-        city: inputCity.value,
-        email: inputEmail.value,
-    };
-    let products = [];
-    for(let product = 0 ; product < localStorage.length ; product++) {
-        products.push(localStorage.getItem('product'));
-    }
-    let data = {contact, products};
-    sendPost('http://localhost:3000/api/teddies/order', data).then(function(response) {
-        console.log(response);
-    }).catch(function(error) {
-        console.log(error);
-    })
-});
+        e.preventDefault();
+        let contact = {
+            firstName: inputFirstName.value,
+            lastName: inputName.value,
+            address: textAreaAddress.value,
+            city: inputCity.value,
+            email: inputEmail.value,
+        };
+        let products = [];
+        for(let product = 0 ; product < teddiesAdded.length ; product++) {
+            products.push(localStorage.getItem('product'));
+        }
+        let data = {contact, products};
+        sendPost('http://localhost:3000/api/teddies/order', data).then(function(response) {
+            console.log(response);
+        }).catch(function(error) {
+            console.log(error);
+        })
+    });
 }
 myCommand();
 addForm();
