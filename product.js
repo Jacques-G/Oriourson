@@ -3,7 +3,6 @@
 const str = window.location;
 const url = new URL(str);
 const idUrl = url.searchParams.get("id");
-//console.log(idUrl);
 
 ////////////////////// CONSTANTES //////////////////////
 
@@ -32,24 +31,30 @@ recoverHttp.onreadystatechange = function() {
         insertDescription(teddyDescription, response);
         insertButtonCart(mainSection, response);
 
-        let teddiesInCArt = [];
-        
         
         /////////// EVENEMENTS ///////////
         const addCart = document.querySelector('button');
         addCart.addEventListener('click', function(e) { //evenement 'click' pour l'envoi au local storage
-        let teddiesChoosen = {
-            picture: response.imageUrl,
-            firsName: response.name,
-            theId: response._id,
-            color: chooseColor.value,
-            price: response.price,
-        }
-            teddiesInCArt.push(teddiesChoosen);
-            console.log(teddiesInCArt);
-            localStorage.setItem('product', teddiesInCArt); //ajout au "storage" des articles choisis
-            alert('Produit ajouté au panier');
-            console.log(localStorage);
+            let teddiesChoosen = {
+                picture: response.imageUrl,
+                firstName: response.name,
+                theId: response._id,
+                color: chooseColor.value,
+                price: response.price,
+            }
+            const teddiesAdded = localStorage.getItem('product');
+            if(teddiesAdded) {
+                teddiesInCArt = JSON.parse(teddiesAdded);
+                teddiesInCArt.push(teddiesChoosen);
+                localStorage.setItem('product', JSON.stringify(teddiesInCArt));
+                console.log(localStorage);
+            } else {
+                teddiesInCArt = [];
+                teddiesInCArt.push(teddiesChoosen);
+                localStorage.setItem('product', JSON.stringify(teddiesInCArt));
+                console.log(localStorage);
+            }
+            
         })    
         
     } 
