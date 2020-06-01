@@ -65,11 +65,6 @@ const myCommand = function() {
             console.log(selectNumberOrTeddies.value);
 
         });
-        const myDetailPrice = document.createElement('div');
-        myDetail.appendChild(myDetailPrice);
-        myDetailPrice.id = 'myDetailPrice';
-        //myDetailPrice.innerHTML = (selectNumberOrTeddies.value*price) +'€';   // NE FONCTIONNE PAS POUR LE MOMENT
-        //console.log(selectNumberOrTeddies.value*price);                         // NE FONCTIONNE PAS POUR LE MOMENT
     
     }
     

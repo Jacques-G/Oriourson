@@ -282,9 +282,14 @@
                     justify-content: space-around;
                     margin-bottom: 20px;
 
-                    & #nomCommande, #couleurCommande, #quantitéCommande, #prixCommande{
+                    & #nomCommande {
                         font-weight: bold;
-                        width: 33%;
+                        width: 40%;
+                        text-align: center;
+                    }
+                    & #couleurCommande, #quantitéCommande, #prixCommande{
+                        font-weight: bold;
+                        width: 20%;
                         text-align: center;
                     }
                 }
@@ -296,18 +301,41 @@
                     margin-bottom: 10px;
                     
 
-                    & #myDetailName, #myDetailColor, #myDetailNumber, #myDetailPrice{
-                        width: 25%;
+                    & #myDetailName{
+                        width: 40%;
+                        text-align: center;
+                        font-size: .8em; 
+                        display: flex;
+                        
+                        & #fig_pic_cart{
+                            width: 30%;
+
+                            & img{
+                                width: 100%;                                
+                            }
+                        }
+                        & #div_name_cart{
+                            width: 70%;
+                            margin: auto;
+                            font-weight: bold;;
+                        }
+                    }
+
+                    & #myDetailColor, #myDetailNumber, #myDetailPrice{
+                        width: 20%;
+                        margin: auto;
                         text-align: center;
                         font-size: .8em;
 
                         & #selectNumberOrTeddies{
-                            width: 100px;
+                            width: 50px;
+                            margin: auto;
 
                              option{
                                  margin: auto;
                              }
                         }
+
                     }
 
                 }

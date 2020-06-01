@@ -339,9 +339,14 @@ body {
   justify-content: space-around;
   margin-bottom: 20px;
 }
-#page_panier #monPanier #infoPanier #detailCommande #titreCommande #nomCommande, #page_panier #monPanier #infoPanier #detailCommande #titreCommande #couleurCommande, #page_panier #monPanier #infoPanier #detailCommande #titreCommande #quantitéCommande, #page_panier #monPanier #infoPanier #detailCommande #titreCommande #prixCommande {
+#page_panier #monPanier #infoPanier #detailCommande #titreCommande #nomCommande {
   font-weight: bold;
-  width: 33%;
+  width: 40%;
+  text-align: center;
+}
+#page_panier #monPanier #infoPanier #detailCommande #titreCommande #couleurCommande, #page_panier #monPanier #infoPanier #detailCommande #titreCommande #quantitéCommande, #page_panier #monPanier #infoPanier #detailCommande #titreCommande #prixCommande {
+  font-weight: bold;
+  width: 20%;
   text-align: center;
 }
 #page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat {
@@ -350,15 +355,34 @@ body {
   width: 100%;
   margin-bottom: 10px;
 }
-#page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailName, #page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailColor, #page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailNumber, #page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailPrice {
-  width: 25%;
+#page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailName {
+  width: 40%;
+  text-align: center;
+  font-size: 0.8em;
+  display: flex;
+}
+#page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailName #fig_pic_cart {
+  width: 30%;
+}
+#page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailName #fig_pic_cart img {
+  width: 100%;
+}
+#page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailName #div_name_cart {
+  width: 70%;
+  margin: auto;
+  font-weight: bold;
+}
+#page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailColor, #page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailNumber, #page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailPrice {
+  width: 20%;
+  margin: auto;
   text-align: center;
   font-size: 0.8em;
 }
-#page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailName #selectNumberOrTeddies, #page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailColor #selectNumberOrTeddies, #page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailNumber #selectNumberOrTeddies, #page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailPrice #selectNumberOrTeddies {
-  width: 100px;
+#page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailColor #selectNumberOrTeddies, #page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailNumber #selectNumberOrTeddies, #page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailPrice #selectNumberOrTeddies {
+  width: 50px;
+  margin: auto;
 }
-#page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailName #selectNumberOrTeddies option, #page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailColor #selectNumberOrTeddies option, #page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailNumber #selectNumberOrTeddies option, #page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailPrice #selectNumberOrTeddies option {
+#page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailColor #selectNumberOrTeddies option, #page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailNumber #selectNumberOrTeddies option, #page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailPrice #selectNumberOrTeddies option {
   margin: auto;
 }
 #page_panier #monPanier #infoPanier #detailCommande #divTotal {
