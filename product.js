@@ -6,8 +6,7 @@ const idUrl = url.searchParams.get("id");
 
 ////////////////////// CONSTANTES //////////////////////
 
-////////////////////// REQUETE GET //////////////////////
-console.log(localStorage);
+////////////////////// REQUETE GET /////////////////////
 let recoverHttp = new XMLHttpRequest(); 
 recoverHttp.onreadystatechange = function() {
     if(this.readyState == XMLHttpRequest.DONE && this.status == 200) {
@@ -47,12 +46,12 @@ recoverHttp.onreadystatechange = function() {
                 teddiesInCArt = JSON.parse(teddiesAdded);
                 teddiesInCArt.push(teddiesChoosen);
                 localStorage.setItem('product', JSON.stringify(teddiesInCArt));
-                console.log(localStorage);
+                alert('Ajouté au panier !');
             } else {
                 teddiesInCArt = [];
                 teddiesInCArt.push(teddiesChoosen);
                 localStorage.setItem('product', JSON.stringify(teddiesInCArt));
-                console.log(localStorage);
+                alert('Ajouté au panier !');
             }
             
         })    
@@ -107,8 +106,6 @@ function insertColor(description, teddyColors) {
     const selectColor = document.createElement('select');
     labelColor.appendChild(selectColor);
     selectColor.id = 'choose_color';
-    selectColor.setAttribute('required', '');
-    
     
     const firstOption = document.createElement('option');
     selectColor.appendChild(firstOption);
@@ -117,6 +114,7 @@ function insertColor(description, teddyColors) {
         const secondOption = document.createElement('option');
         selectColor.appendChild(secondOption);
         secondOption.setAttribute('value', teddyColors[i]);
+        secondOption.setAttribute('required', '');
         secondOption.innerHTML = teddyColors[i];
     }
 }
