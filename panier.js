@@ -99,7 +99,7 @@ const myCommand = function(selectNumberOrTeddies) {
 }
 
 /*----------- Fonction pour ajout Formulaire ----------*/
-function addForm(data) {
+function addForm() {
     const myBask = document.getElementById('monPanier');
     const divInformForm = document.createElement('div');
     myBask.appendChild(divInformForm);
@@ -212,15 +212,16 @@ function addForm(data) {
         };
         let products = [];
         for(let p = 0 ; p < teddiesAdded.length ; p++) {
+        
             products.push(teddiesAdded[p].theId);
-            
+           
         }
-        let data = {contact, products};
-        sendPost('http://localhost:3000/api/teddies/order', data).then(function(response) {
+        let toSend = {contact, products};
+        sendPost('http://localhost:3000/api/teddies/order', toSend).then(function(response) {
             console.log(response);
             
-        }).catch(function() {
-            console.log('error');
+        }).catch(function(error) {
+            console.log(error);
         })
     });
 }
@@ -229,19 +230,20 @@ myCommand();
 addForm();
 
 //////////////////// PROMISE REQUETE POST ////////////////////
-function sendPost(url, data){
+function sendPost(url, toSend){
     return new Promise((resolve, reject) => {
         let recovHttp= new XMLHttpRequest();
         recovHttp.open('POST', url);
         recovHttp.setRequestHeader('content-type', 'application/json');
-        recovHttp.send(JSON.stringify(data));
+        recovHttp.send(JSON.stringify(toSend));
         recovHttp.onreadystatechange = function() {
-            if(this.readyState == XMLHttpRequest.DONE && this.status) {
-                    resolve(JSON.parse(this.responseText));
+        if(this.readyState === XMLHttpRequest.DONE && this.status === 200) {     
+            resolve(JSON.parse(this.responseText));
+            
             } else {
                 reject(recovHttp);
             }
-            
+         
         }
     })
 }
