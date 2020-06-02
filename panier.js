@@ -219,8 +219,8 @@ function addForm(data) {
         sendPost('http://localhost:3000/api/teddies/order', data).then(function(response) {
             console.log(response);
             
-        }).catch(function(error) {
-            console.log(error);
+        }).catch(function() {
+            console.log('error');
         })
     });
 }
@@ -236,7 +236,7 @@ function sendPost(url, data){
         recovHttp.setRequestHeader('content-type', 'application/json');
         recovHttp.send(JSON.stringify(data));
         recovHttp.onreadystatechange = function() {
-            if(this.readyState == XMLHttpRequest.DONE & this.status == 200) {
+            if(this.readyState == XMLHttpRequest.DONE && this.status) {
                     resolve(JSON.parse(this.responseText));
             } else {
                 reject(recovHttp);
