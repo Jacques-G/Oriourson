@@ -212,15 +212,13 @@ function addForm(data) {
         };
         let products = [];
         for(let p = 0 ; p < teddiesAdded.length ; p++) {
-            let teddiesChoosen = {
-                name: teddiesAdded[p].firstName,
-                id: teddiesAdded[p].theId,
-            }
-            products.push(teddiesChoosen);
+            products.push(teddiesAdded[p].theId);
+            
         }
         let data = {contact, products};
         sendPost('http://localhost:3000/api/teddies/order', data).then(function(response) {
             console.log(response);
+            
         }).catch(function(error) {
             console.log(error);
         })
@@ -230,14 +228,12 @@ cartEmpty();
 myCommand();
 addForm();
 
-
-    
 //////////////////// PROMISE REQUETE POST ////////////////////
 function sendPost(url, data){
     return new Promise((resolve, reject) => {
         let recovHttp= new XMLHttpRequest();
         recovHttp.open('POST', url);
-        recovHttp.setRequestHeader('content-type', 'aplication/json');
+        recovHttp.setRequestHeader('content-type', 'application/json');
         recovHttp.send(JSON.stringify(data));
         recovHttp.onreadystatechange = function() {
             if(this.readyState == XMLHttpRequest.DONE & this.status == 200) {
