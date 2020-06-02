@@ -52,53 +52,12 @@ const myCommand = function(selectNumberOrTeddies) {
         divColor.id = 'myDetailColor';
         divColor.innerHTML = teddiesAdded[i].color;
 
-        
-        //Partie Choix du nombre
-        const myDetailNumber = document.createElement('label');
-        myDetail.appendChild(myDetailNumber);
-        myDetailNumber.id = 'myDetailNumber';
-        const mySelectNumber = document.createElement('select');
-        myDetailNumber.appendChild(mySelectNumber);
-        mySelectNumber.id ='selectNumberOrTeddies';
-        
-        const firstOption = document.createElement('option');
-        mySelectNumber.appendChild(firstOption);
-        firstOption.setAttribute('value', '1');
-        firstOption.innerHTML = '1';
-
-        const secondOption = document.createElement('option');
-        mySelectNumber.appendChild(secondOption);
-        secondOption.setAttribute('value', '2');
-        secondOption.innerHTML = '2';
-
-        const thirdOption = document.createElement('option');
-        mySelectNumber.appendChild(thirdOption);
-        thirdOption.setAttribute('value', '3');
-        thirdOption.innerHTML = '3';
-
-        const fourthOption = document.createElement('option');
-        mySelectNumber.appendChild(fourthOption);
-        fourthOption.setAttribute('value', '4');
-        fourthOption.innerHTML = '4';
-
+    
         //Partie Prix 
         const myDetailPrice = document.createElement('div');
         myDetail.appendChild(myDetailPrice);
         myDetailPrice.id = 'myDetailPrice';
         myDetailPrice.innerHTML = teddiesAdded[i].price + ' ' + '€';
-
-        const selectNumberOrTeddies = document.getElementById('selectNumberOrTeddies');
-        selectNumberOrTeddies.addEventListener('change', function(e) { // Calcul des prix des oursons en fonction de la quantité choisi
-            
-
-            e.stopImmediatePropagation();
-            let qty = selectNumberOrTeddies.value;
-            let teddyPrice = teddiesAdded[i].price;
-            myDetailPrice.innerHTML = (qty * teddyPrice) + ' ' + '€';
-            
-            
-            
-        });
     
     }
     // Partie Total Commande
@@ -115,15 +74,11 @@ const myCommand = function(selectNumberOrTeddies) {
 
     let priceTeddies = [];
     
-    for(let i in teddiesAdded) {
-        let teddyInCart = {
-            price: teddiesAdded.price,
-            quantity: selectNumberOrTeddies,
-        }
-        priceTeddies.push(teddyInCart[i]);
-        
+    for(let i = 0 ; i < teddiesAdded.length ; i++) {
+        priceTeddies.push(teddiesAdded[i].price);   
     }
-    console.log(priceTeddies);
+    const calculator = (accumulator, currentValue) => accumulator + currentValue;
+    totalPriceCalcul.innerHTML = priceTeddies.reduce(calculator) + ' ' + '€';
         
     
  
@@ -140,6 +95,7 @@ const myCommand = function(selectNumberOrTeddies) {
         localStorage.clear();
         cartEmpty();
     })
+        
 }
 
 /*----------- Fonction pour ajout Formulaire ----------*/
@@ -255,8 +211,12 @@ function addForm(data) {
             email: inputEmail.value,
         };
         let products = [];
-        for(let product = 0 ; product < teddiesAdded.length ; product++) {
-            products.push(localStorage.getItem('product'));
+        for(let p = 0 ; p < teddiesAdded.length ; p++) {
+            let teddiesChoosen = {
+                name: teddiesAdded[p].firstName,
+                id: teddiesAdded[p].theId,
+            }
+            products.push(teddiesChoosen);
         }
         let data = {contact, products};
         sendPost('http://localhost:3000/api/teddies/order', data).then(function(response) {
@@ -266,6 +226,7 @@ function addForm(data) {
         })
     });
 }
+cartEmpty();
 myCommand();
 addForm();
 
