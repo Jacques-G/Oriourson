@@ -202,6 +202,16 @@ body {
   display: flex;
   flex-direction: row;
 }
+@media all and (max-width: 800px) {
+  #catalogue .PartieOurson .description_ourson .id_ourson, .partie__ourson .PartieOurson .description_ourson .id_ourson {
+    margin: 0 auto;
+  }
+}
+@media all and (max-width: 640px) {
+  #catalogue .PartieOurson .description_ourson .id_ourson #id_teddy, .partie__ourson .PartieOurson .description_ourson .id_ourson #id_teddy {
+    margin: auto;
+  }
+}
 @media all and (max-width: 640px) {
   #catalogue .PartieOurson .description_ourson p, .partie__ourson .PartieOurson .description_ourson p {
     padding: 0 10px 0 10px;
@@ -265,6 +275,16 @@ body {
   box-shadow: 0.2em 0.2em 0.2em 0.2em grey;
   margin: 20px auto;
 }
+@media all and (max-width: 1024px) {
+  #page_product .onlyTeddy {
+    margin-top: 100px;
+  }
+}
+@media all and (max-width: 800px) {
+  #page_product .onlyTeddy {
+    margin-top: auto;
+  }
+}
 #page_product .onlyTeddy figure {
   margin: 0;
   width: 100%;
@@ -292,6 +312,11 @@ body {
 }
 #page_product .onlyTeddy .description_Teddy .labelForColor {
   margin: auto;
+}
+@media all and (max-width: 640px) {
+  #page_product .onlyTeddy .description_Teddy .labelForColor {
+    text-align: center;
+  }
 }
 #page_product .onlyTeddy .description_Teddy .labelForColor label {
   font-weight: bold;
@@ -338,15 +363,30 @@ body {
   justify-content: space-around;
   margin-bottom: 20px;
 }
+@media all and (max-width: 640px) {
+  #page_panier #monPanier #infoPanier #detailCommande #titreCommande {
+    font-size: 0.7em;
+  }
+}
 #page_panier #monPanier #infoPanier #detailCommande #titreCommande #nomCommande {
   font-weight: bold;
   width: 50%;
   text-align: center;
 }
+@media all and (max-width: 800px) {
+  #page_panier #monPanier #infoPanier #detailCommande #titreCommande #nomCommande {
+    margin: auto;
+  }
+}
 #page_panier #monPanier #infoPanier #detailCommande #titreCommande #couleurCommande, #page_panier #monPanier #infoPanier #detailCommande #titreCommande #prixCommande {
   font-weight: bold;
   width: 25%;
   text-align: center;
+}
+@media all and (max-width: 800px) {
+  #page_panier #monPanier #infoPanier #detailCommande #titreCommande #couleurCommande, #page_panier #monPanier #infoPanier #detailCommande #titreCommande #prixCommande {
+    margin: auto;
+  }
 }
 #page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat {
   display: flex;
@@ -359,6 +399,12 @@ body {
   text-align: center;
   font-size: 0.8em;
   display: flex;
+  justify-content: space-around;
+}
+@media all and (max-width: 640px) {
+  #page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailName {
+    justify-content: space-around;
+  }
 }
 #page_panier #monPanier #infoPanier #detailCommande .detailOursonAchat #myDetailName #fig_pic_cart {
   width: 30%;
@@ -448,6 +494,32 @@ body {
   #footer div ul li a, .footer_catalogue div ul li a {
     text-align: center;
     font-size: 0.7em;
+  }
+}
+@media all and (max-width: 1024px) {
+  #footer--product, .footer_catalogue--product {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+@media all and (max-width: 640px) {
+  #footer--product, .footer_catalogue--product {
+    position: relative;
+  }
+}
+@media all and (max-width: 1024px) {
+  #footer--panier, .footer_catalogue--panier {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+@media all and (max-width: 800px) {
+  #footer--panier, .footer_catalogue--panier {
+    position: relative;
   }
 }
 
