@@ -31,6 +31,7 @@ function insertId(div, idTeddies){
     newSpan.innerHTML = "Numéro d'Id : ";
     const newP2 = document.createElement('p');
     newDiv2.appendChild(newP2);
+    newP2.id = 'id_teddy';
     newP2.innerHTML = idTeddies;
 }
 
