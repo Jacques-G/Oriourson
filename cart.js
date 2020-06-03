@@ -123,6 +123,7 @@ function addForm() {
     divFormFirstName.appendChild(inputFirstName);
     inputFirstName.setAttribute('type', 'text')
     inputFirstName.setAttribute('id', 'firstname')
+    //inputFirstName.setAttribute('pattern', '[A-Za-z]');
     inputFirstName.setAttribute('required', '');
     inputFirstName.addEventListener('change', function(e) {
         console.log(inputFirstName.value);
@@ -140,6 +141,7 @@ function addForm() {
     inputName.setAttribute('type', 'text')
     inputName.setAttribute('id', 'lastname')
     inputName.setAttribute('required', '');
+    
     inputName.addEventListener('change', function(e) {
         console.log(inputName.value);
     })
@@ -191,6 +193,7 @@ function addForm() {
     inputEmail.addEventListener('change', function(e) {
         console.log(inputEmail.value);
     })
+    
     const divConfirm = document.createElement('div');
     myForm.appendChild(divConfirm);
     divConfirm.id = 'div_confirm';
@@ -237,14 +240,15 @@ function sendPost(url, toSend){
         recovHttp.setRequestHeader('content-type', 'application/json');
         recovHttp.send(JSON.stringify(toSend));
         recovHttp.onreadystatechange = function() {
-        if(this.readyState === XMLHttpRequest.DONE && this.status === 200) {     
-            resolve(JSON.parse(this.responseText));
-            
-            } else {
-                reject(recovHttp);
+            if(this.readyState === XMLHttpRequest.DONE) {
+                if(this.status >= 200 && this.status <= 300) {  
+                    resolve(JSON.parse(this.responseText));
+                } else {
+                    reject('encore une erreur');
+                }
             }
          
         }
-    })
+    });
 }
 
