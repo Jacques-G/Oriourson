@@ -67,15 +67,38 @@ function insertLienPerso(div3, idLienTeddies){
     newA.setAttribute('href', './product.html?id=' + idLienTeddies);
     newA.innerHTML = 'Personnaliser le !';
 }
+function serverOut() {
+    const myH1 = document.getElementById('my_title');
+    myH1.style.display = 'none';
+    const myH2 = document.getElementById('my_second_title');
+    myH2.style.display='none';
+    const myFooter = document.getElementById('footer');
+    myFooter.style.display ='none';
+    const divServerOut = document.createElement('div');
+    catalogue.appendChild(divServerOut);
+    divServerOut.id = 'div_server_out';
+    divServerOut.innerHTML = 'Nous revenons très bientôt';
+}
+function promiseGet() {
+    return new Promise((resolve, reject) => {
+        let recupHttp = new XMLHttpRequest();
+        recupHttp.open('GET', 'http://localhost:3000/api/teddies');
+        recupHttp.send();
+        recupHttp.onreadystatechange = function() {
+            if(this.readyState == XMLHttpRequest.DONE) {
+                if(this.status == 200) {
+                    resolve(JSON.parse(this.responseText));
+                }else{
+                    reject(recupHttp);
+                }
+            }
+        }
+    })
+}
 
+promiseGet()
+    .then(function(response) {
 
-
-/*------ REQUETE GET -----*/
-let recupHttp = new XMLHttpRequest();
-recupHttp.onreadystatechange = function() {
-    if(this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-        let response = JSON.parse(this.responseText);
-        console.log(response);
         fondPhotoOurson.setAttribute('src', 'http://localhost:3000/images/teddy_5.jpg');
         for(let i = 0; i < response.length; i++) {
             const newSection = document.createElement('section');
@@ -96,7 +119,7 @@ recupHttp.onreadystatechange = function() {
             insertLienPerso(newDiv3, response[i]._id);
             
         }
-    }
-}
-recupHttp.open('GET', 'http://localhost:3000/api/teddies');
-recupHttp.send()
+    })
+    .catch(function(error) {
+        serverOut();
+    })
