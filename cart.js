@@ -8,15 +8,13 @@ detailCart.appendChild(detailBuy);
 const teddiesAdded_json = localStorage.getItem('product');
 const teddiesAdded = JSON.parse(teddiesAdded_json);
 
-//////////////////// RECUP DU LOCAL STORAGE ////////////////////
-
 //////////////////// FUNCTIONS ////////////////////
 
 /*----- fonction pour panier vide -----*/
 const cartEmpty = function() {
     if(localStorage.length === 0) {
         detailCart.style.display = 'none';
-        const divEmpty = document.createElement('div')
+        const divEmpty = document.createElement('div');
         infoCart.appendChild(divEmpty);
         divEmpty.id = 'alertCartEmpty';
         divEmpty.innerHTML = 'Votre Panier est vide';
@@ -25,8 +23,8 @@ const cartEmpty = function() {
 }
 /*------ fonction pour alimenter le tableau de commande -----*/
 
-const myCommand = function(selectNumberOrTeddies) {
-
+const myCommand = function() {
+    
     for(let i in teddiesAdded) {
         const myDetail = document.createElement('div');
         detailBuy.appendChild(myDetail);
@@ -82,16 +80,16 @@ const myCommand = function(selectNumberOrTeddies) {
         
     
  
-    const buttonCart = document.createElement('button');
+    const buttonEmptyCart = document.createElement('button');
     const divButton = document.createElement('div');
     detailCart.appendChild(divButton);
     divButton.id = 'divDelete';
-    divButton.appendChild(buttonCart);
-    buttonCart.id = 'deleteButton';
-    buttonCart.setAttribute('type', 'submit');
-    buttonCart.innerHTML = "Supprimer mon panier";
+    divButton.appendChild(buttonEmptyCart);
+    buttonEmptyCart.id = 'deleteButton';
+    buttonEmptyCart.setAttribute('type', 'submit');
+    buttonEmptyCart.innerHTML = "Supprimer mon panier";
 
-    buttonCart.addEventListener('click', function(e) {
+    buttonEmptyCart.addEventListener('click', function(e) {
         localStorage.clear();
         cartEmpty();
     })
@@ -123,7 +121,7 @@ function addForm() {
     divFormFirstName.appendChild(inputFirstName);
     inputFirstName.setAttribute('type', 'text')
     inputFirstName.setAttribute('id', 'firstname')
-    //inputFirstName.setAttribute('pattern', '[A-Za-z]');
+    inputFirstName.setAttribute('pattern', '[A-Za-z]+');
     inputFirstName.setAttribute('required', '');
     inputFirstName.addEventListener('change', function(e) {
         console.log(inputFirstName.value);
@@ -140,6 +138,7 @@ function addForm() {
     divFormName.appendChild(inputName);
     inputName.setAttribute('type', 'text')
     inputName.setAttribute('id', 'lastname')
+    inputName.setAttribute('pattern', '[A-Za-z]+');
     inputName.setAttribute('required', '');
     
     inputName.addEventListener('change', function(e) {
@@ -173,6 +172,7 @@ function addForm() {
     divFormCity.appendChild(inputCity);
     inputCity.setAttribute('type', 'text')
     inputCity.setAttribute('id', 'city')
+    inputCity.setAttribute('pattern', '[A-Za-z]+');
     inputCity.setAttribute('required', '');
     inputCity.addEventListener('change', function(e) {
         console.log(inputCity.value);
@@ -204,8 +204,8 @@ function addForm() {
     buttonConfirmOrder.innerHTML = 'Valider ma commande';
 
     const confirmOrder = document.getElementById('confirm_order');
-    confirmOrder.addEventListener('click', function(e) {
-        e.preventDefault();
+    confirmOrder.addEventListener('onClick', function(e) {
+        //e.preventDefault();
         let contact = {
             firstName: inputFirstName.value,
             lastName: inputName.value,
@@ -221,16 +221,24 @@ function addForm() {
         }
         let toSend = {contact, products};
         sendPost('http://localhost:3000/api/teddies/order', toSend).then(function(response) {
-            console.log(response);
+            window.location.href='./thankyou.html?orderId=' + response.orderId;
+            orderPage(response);
             
         }).catch(function(error) {
             console.log(error);
         })
     });
 }
-cartEmpty();
-myCommand();
-addForm();
+
+/*----------- Fonction pour gestion page Remerciement ----------*/
+function orderPage(response, priceTeddies) {
+    infoCart.removeChild(detailCart);
+    const thanksPage = document.getElementById('page_remerciements');
+    const thanksDiv = document.createElement('div');
+    thanksPage.appendChild(thanksDiv);
+    thanksDiv.id ='thanks_div';
+    thanksDiv.innerHTML = response.contact.firstName + ", </br> Nous te remercions pour ton achat, pour un montant de" + priceTeddies.reduce(calculator) + ' ' + "€. </br> Ton numéro de commande est le : " + response.orderId + ", garde le. Il te sera utile, lors d'éventuels échanges entre nous. </br> Toute l'équipe d'Oriourson te remercie et nous te souhaitons une belle journée.";
+}
 
 //////////////////// PROMISE REQUETE POST ////////////////////
 function sendPost(url, toSend){
@@ -251,4 +259,8 @@ function sendPost(url, toSend){
         }
     });
 }
+
+cartEmpty();
+myCommand();
+addForm();
 
