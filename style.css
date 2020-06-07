@@ -149,6 +149,13 @@ body {
 }
 
 /*----- SECTION OURSON -----*/
+#catalogue #div_server_out, .partie__ourson #div_server_out {
+  text-align: center;
+  margin-top: 50vh;
+  transform: translateY(-50%);
+  font-weight: bold;
+  font-size: 2em;
+}
 #catalogue .PartieOurson, .partie__ourson .PartieOurson {
   width: 90%;
   display: flex;
@@ -468,6 +475,23 @@ body {
   color: white;
   display: flex;
   justify-content: space-around;
+  /*
+  &--product{
+
+
+      @include mobile{
+          position: relative;
+      }
+
+
+  }
+  &--panier{
+
+
+      @include petite-tablette{
+          position: relative;
+      }
+  }*/
 }
 #footer div h4, .footer_catalogue div h4 {
   text-align: center;
@@ -496,31 +520,11 @@ body {
     font-size: 0.7em;
   }
 }
-@media all and (max-width: 1024px) {
-  #footer--product, .footer_catalogue--product {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
-}
-@media all and (max-width: 640px) {
-  #footer--product, .footer_catalogue--product {
-    position: relative;
-  }
-}
-@media all and (max-width: 1024px) {
-  #footer--panier, .footer_catalogue--panier {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
-}
-@media all and (max-width: 800px) {
-  #footer--panier, .footer_catalogue--panier {
-    position: relative;
-  }
+#footer--thanks, .footer_catalogue--thanks {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 header .petit_bandeau {

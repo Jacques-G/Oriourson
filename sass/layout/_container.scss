@@ -70,6 +70,15 @@
 /*----- SECTION OURSON -----*/
 
 #catalogue, .partie__ourson{
+    
+
+    & #div_server_out{
+        text-align: center;
+        margin-top: 50vh;
+        transform: translateY(-50%);
+        font-weight: bold;
+        font-size: 2em;
+    }
    
     & .PartieOurson{
         width: 90%;
