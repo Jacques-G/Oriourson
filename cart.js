@@ -275,8 +275,9 @@ function addForm() {
         sendPost('http://localhost:3000/api/teddies/order', toSend).then(function(response) {
             //console.log(response.orderId);
             window.location.href='./thankyou.html?orderId=' + response.orderId;
-            orderPage(response);
-     
+            
+            orderPage();
+            
         }).catch(function(error) {
             console.log(error);
         })
@@ -291,11 +292,13 @@ function emailIsValid(value) {
 }
 
 /*----------- Fonction pour gestion page Remerciement ----------*/
-function orderPage(response, priceTeddies) {
-    const thanksDiv = document.createElement('div');
+function orderPage() {
+    const contactFirstName = document.getElementById('contact_FirstName');
+    contactFirstName.innerHTML = response.contact.firstName + ',';
+    /*const thanksDiv = document.createElement('div');
     thanksPage.appendChild(thanksDiv);
     thanksDiv.id ='thanks_div';
-    thanksDiv.innerHTML = response.contact.firstName + ", </br> Nous te remercions pour ton achat, pour un montant de" + priceTeddies.reduce(calculator) + ' ' + "€. </br> Ton numéro de commande est le : " + response.orderId + ", garde le. Il te sera utile, lors d'éventuels échanges entre nous. </br> Toute l'équipe d'Oriourson te remercie et nous te souhaitons une belle journée.";
+    thanksDiv.innerHTML = response.contact.firstName + ", </br> Nous te remercions pour ton achat, pour un montant de" + priceTeddies.reduce(calculator) + ' ' + "€. </br> Ton numéro de commande est le : " + response.orderId + ", garde le. Il te sera utile, lors d'éventuels échanges entre nous. </br> Toute l'équipe d'Oriourson te remercie et nous te souhaitons une belle journée.";*/
 }
 
 //////////////////// PROMISE REQUETE POST ////////////////////
@@ -318,7 +321,11 @@ function sendPost(url, toSend){
     });
 }
 
+
 cartEmpty();
 myCommand();
 addForm();
+
+
+
 
