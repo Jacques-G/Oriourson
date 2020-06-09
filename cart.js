@@ -4,6 +4,7 @@ const infoCart = document.getElementById('infoPanier');
 const detailCart = document.getElementById('detailCommande');
 const detailBuy = document.createElement('div');
 detailCart.appendChild(detailBuy);
+const thanksPage = document.getElementById('page_remerciements');
 
 const teddiesAdded_json = localStorage.getItem('product');
 const teddiesAdded = JSON.parse(teddiesAdded_json);
@@ -49,8 +50,6 @@ const myCommand = function() {
         myDetail.appendChild(divColor);
         divColor.id = 'myDetailColor';
         divColor.innerHTML = teddiesAdded[i].color;
-
-    
         //Partie Prix 
         const myDetailPrice = document.createElement('div');
         myDetail.appendChild(myDetailPrice);
@@ -121,10 +120,21 @@ function addForm() {
     divFormFirstName.appendChild(inputFirstName);
     inputFirstName.setAttribute('type', 'text')
     inputFirstName.setAttribute('id', 'firstname')
-    inputFirstName.setAttribute('pattern', '[A-Za-z]+');
-    inputFirstName.setAttribute('required', '');
     inputFirstName.addEventListener('change', function(e) {
         console.log(inputFirstName.value);
+        let value = e.target.value;
+        const divInputError = document.createElement('div');
+        divFormFirstName.appendChild(divInputError);
+        divInputError.id ='div_input_error';
+        const divError = document.getElementById('div_input_error');
+        divError.innerHTML = '';
+
+        if(isValid(value) == false) {
+            return (divError.innerHTML ='Veuillez remplir votre Prénom correctement !') && (inputConfirmOrder.setAttribute('disabled', 'true'));
+        } else if(isValid(value) == true) {
+            return (divFormFirstName.removeChild(divError)) && (inputConfirmOrder.removeAttribute('disabled'));
+        }
+
     })
     // AJOUT DU FORM NOM
     const divFormName = document.createElement('div');
@@ -138,11 +148,21 @@ function addForm() {
     divFormName.appendChild(inputName);
     inputName.setAttribute('type', 'text')
     inputName.setAttribute('id', 'lastname')
-    inputName.setAttribute('pattern', '[A-Za-z]+');
-    inputName.setAttribute('required', '');
     
     inputName.addEventListener('change', function(e) {
         console.log(inputName.value);
+        let value = e.target.value;
+        const divInputError = document.createElement('div');
+        divFormName.appendChild(divInputError);
+        divInputError.id ='div_input_error2';
+        const divError2 = document.getElementById('div_input_error2');
+        divError2.innerHTML = '';
+
+        if(isValid(value) == false) {
+            return (divError2.innerHTML ='Veuillez remplir votre Nom correctement !') && (inputConfirmOrder.setAttribute('disabled', 'true'));
+        } else if(isValid(value) == true) {
+            return (divFormName.removeChild(divError2)) && (inputConfirmOrder.removeAttribute('disabled'));
+        }
     })
     // AJOUT DU FORM ADRESSE
     const divFormAddress = document.createElement('div');
@@ -155,10 +175,18 @@ function addForm() {
     const textAreaAddress = document.createElement('textarea');
     divFormAddress.appendChild(textAreaAddress);
     textAreaAddress.setAttribute('type', 'text')
-    textAreaAddress.setAttribute('id', 'address')
-    textAreaAddress.setAttribute('required', '');
+    
     textAreaAddress.addEventListener('change', function(e) {
         console.log(textAreaAddress.value);
+        let value = e.target.value;
+        const divInputError = document.createElement('div');
+        divFormAddress.appendChild(divInputError);
+        divInputError.id ='div_input_errorAddress';
+        const divErrorAddress = document.getElementById('div_input_errorAddress');
+        divErrorAddress.innerHTML = '';
+        if(value == undefined || value == null || value == '') {
+            return (divErrorAddress.innerHTML = 'Veuillez remplir votre Adresse correctement !') && (inputConfirmOrder.setAttribute('disabled', 'true'));
+        }
     })
     // AJOUT DU FORM VILLE
     const divFormCity = document.createElement('div');
@@ -172,10 +200,20 @@ function addForm() {
     divFormCity.appendChild(inputCity);
     inputCity.setAttribute('type', 'text')
     inputCity.setAttribute('id', 'city')
-    inputCity.setAttribute('pattern', '[A-Za-z]+');
-    inputCity.setAttribute('required', '');
     inputCity.addEventListener('change', function(e) {
         console.log(inputCity.value);
+        let value = e.target.value;
+        const divInputError = document.createElement('div');
+        divFormCity.appendChild(divInputError);
+        divInputError.id ='div_input_error3';
+        const divError3 = document.getElementById('div_input_error3');
+        divError3.innerHTML = '';
+
+        if(isValid(value) == false) {
+            return (divError3.innerHTML ='Veuillez remplir votre Ville correctement !') && (inputConfirmOrder.setAttribute('disabled', 'true'));
+        } else if(isValid(value) == true) {
+            return (divFormCity.removeChild(divError3)) && (inputConfirmOrder.removeAttribute('disabled'));
+        }
     })
     // AJOUT DU FORM EMAIL
     const divFormEmail = document.createElement('div');
@@ -189,23 +227,35 @@ function addForm() {
     divFormEmail.appendChild(inputEmail);
     inputEmail.setAttribute('type', 'email')
     inputEmail.setAttribute('id', 'emailAd')
-    inputEmail.setAttribute('required', '');
     inputEmail.addEventListener('change', function(e) {
         console.log(inputEmail.value);
+        let value = e.target.value;
+        const divInputError = document.createElement('div');
+        divFormEmail.appendChild(divInputError);
+        divInputError.id ='div_input_error4';
+        const divError4 = document.getElementById('div_input_error4');
+        divError4.innerHTML = '';
+
+        if(emailIsValid(value) == false) {
+            return (divError4.innerHTML ='Veuillez remplir votre Email correctement !') && (inputConfirmOrder.setAttribute('disabled', 'true'));
+        } else if(emailIsValid(value) == true) {
+            return (divFormEmail.removeChild(divError4)) && (inputConfirmOrder.removeAttribute('disabled'));
+        }
     })
     
     const divConfirm = document.createElement('div');
     myForm.appendChild(divConfirm);
     divConfirm.id = 'div_confirm';
-    const buttonConfirmOrder = document.createElement('button');
-    divConfirm.appendChild(buttonConfirmOrder);
-    buttonConfirmOrder.id = 'confirm_order';
-    buttonConfirmOrder.setAttribute('type', 'submit');
-    buttonConfirmOrder.innerHTML = 'Valider ma commande';
+    
+    const inputConfirmOrder = document.createElement('input');
+    divConfirm.appendChild(inputConfirmOrder);
+    inputConfirmOrder.id ='confirm_order';
+    inputConfirmOrder.setAttribute('type', 'submit');
+    inputConfirmOrder.setAttribute('value', 'Valider ma commande');
 
-    const confirmOrder = document.getElementById('confirm_order');
-    confirmOrder.addEventListener('onClick', function(e) {
-        //e.preventDefault();
+    //const confirmOrder = document.getElementById('confirm_order');
+    inputConfirmOrder.addEventListener('click', function(e) {
+        e.preventDefault();
         let contact = {
             firstName: inputFirstName.value,
             lastName: inputName.value,
@@ -220,20 +270,29 @@ function addForm() {
            
         }
         let toSend = {contact, products};
+        //console.log(toSend);
+        
         sendPost('http://localhost:3000/api/teddies/order', toSend).then(function(response) {
+            //console.log(response.orderId);
             window.location.href='./thankyou.html?orderId=' + response.orderId;
             orderPage(response);
-            
+     
         }).catch(function(error) {
             console.log(error);
         })
     });
 }
+/*----------- Regex pour verification input ----------*/
+function isValid(value) {
+    return /^[a-zA-Z]{3,}$/.test(value);
+}
+function emailIsValid(value) {
+    return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(value);
+}
 
 /*----------- Fonction pour gestion page Remerciement ----------*/
 function orderPage(response, priceTeddies) {
     infoCart.removeChild(detailCart);
-    const thanksPage = document.getElementById('page_remerciements');
     const thanksDiv = document.createElement('div');
     thanksPage.appendChild(thanksDiv);
     thanksDiv.id ='thanks_div';
