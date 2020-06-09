@@ -466,6 +466,13 @@ body {
   width: 90%;
   margin: 0 auto;
 }
+#page_panier #monPanier #my_form #div_form_first_name #div_input_error, #page_panier #monPanier #my_form #div_form_first_name #div_input_error2, #page_panier #monPanier #my_form #div_form_first_name #div_input_errorAddress, #page_panier #monPanier #my_form #div_form_first_name #div_input_error3, #page_panier #monPanier #my_form #div_form_first_name #div_input_error4, #page_panier #monPanier #my_form #div_form_name #div_input_error, #page_panier #monPanier #my_form #div_form_name #div_input_error2, #page_panier #monPanier #my_form #div_form_name #div_input_errorAddress, #page_panier #monPanier #my_form #div_form_name #div_input_error3, #page_panier #monPanier #my_form #div_form_name #div_input_error4, #page_panier #monPanier #my_form #div_form_address #div_input_error, #page_panier #monPanier #my_form #div_form_address #div_input_error2, #page_panier #monPanier #my_form #div_form_address #div_input_errorAddress, #page_panier #monPanier #my_form #div_form_address #div_input_error3, #page_panier #monPanier #my_form #div_form_address #div_input_error4, #page_panier #monPanier #my_form #div_form_city #div_input_error, #page_panier #monPanier #my_form #div_form_city #div_input_error2, #page_panier #monPanier #my_form #div_form_city #div_input_errorAddress, #page_panier #monPanier #my_form #div_form_city #div_input_error3, #page_panier #monPanier #my_form #div_form_city #div_input_error4, #page_panier #monPanier #my_form #div_form_email #div_input_error, #page_panier #monPanier #my_form #div_form_email #div_input_error2, #page_panier #monPanier #my_form #div_form_email #div_input_errorAddress, #page_panier #monPanier #my_form #div_form_email #div_input_error3, #page_panier #monPanier #my_form #div_form_email #div_input_error4 {
+  margin: 0 auto;
+  width: 90%;
+  color: red;
+  font-size: 0.7em;
+  font-weight: bold;
+}
 #page_panier #monPanier #my_form #div_confirm {
   text-align: center;
 }

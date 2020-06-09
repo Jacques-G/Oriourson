@@ -429,6 +429,13 @@
                     width: 90%;
                     margin: 0 auto;
                 }
+                & #div_input_error, #div_input_error2, #div_input_errorAddress, #div_input_error3, #div_input_error4{
+                    margin:0 auto;
+                    width: 90%;
+                    color: red;
+                    font-size: 0.7em;
+                    font-weight: bold;
+                }
 
             }
 
