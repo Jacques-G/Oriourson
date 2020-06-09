@@ -292,7 +292,6 @@ function emailIsValid(value) {
 
 /*----------- Fonction pour gestion page Remerciement ----------*/
 function orderPage(response, priceTeddies) {
-    infoCart.removeChild(detailCart);
     const thanksDiv = document.createElement('div');
     thanksPage.appendChild(thanksDiv);
     thanksDiv.id ='thanks_div';
