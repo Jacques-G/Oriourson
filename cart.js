@@ -19,6 +19,11 @@ const cartEmpty = function() {
         infoCart.appendChild(divEmpty);
         divEmpty.id = 'alertCartEmpty';
         divEmpty.innerHTML = 'Votre Panier est vide';
+        const footerCartEmpty = document.getElementById('footer');
+        footerCartEmpty.style.position = 'absolute';
+        footerCartEmpty.style.bottom = '0';
+        footerCartEmpty.style.left = '0';
+        footerCartEmpty.style.right = '0';
         console.log(localStorage);
     }
 }
@@ -39,7 +44,6 @@ const myCommand = function() {
         const imgPictureCart = document.createElement('img');
         figPictureCart.appendChild(imgPictureCart);
         imgPictureCart.setAttribute('src', teddiesAdded[i].picture);
-        console.log(teddiesAdded);
     
         const divNameCart = document.createElement('div');
         myDetailName.appendChild(divNameCart);
@@ -77,7 +81,6 @@ const myCommand = function() {
     const calculator = (accumulator, currentValue) => accumulator + currentValue;
     totalPriceCalcul.innerHTML = priceTeddies.reduce(calculator) + ' ' + '€';
         
-    
  
     const buttonEmptyCart = document.createElement('button');
     const divButton = document.createElement('div');
@@ -253,7 +256,6 @@ function addForm() {
     inputConfirmOrder.setAttribute('type', 'submit');
     inputConfirmOrder.setAttribute('value', 'Valider ma commande');
 
-    //const confirmOrder = document.getElementById('confirm_order');
     inputConfirmOrder.addEventListener('click', function(e) {
         e.preventDefault();
         let contact = {
@@ -270,10 +272,10 @@ function addForm() {
            
         }
         let toSend = {contact, products};
-        //console.log(toSend);
+    
         
         sendPost('http://localhost:3000/api/teddies/order', toSend).then(function(response) {
-            //console.log(response.orderId);
+            
             window.location.href='./thankyou.html?orderId=' + response.orderId;
             
             orderPage();
@@ -289,16 +291,6 @@ function isValid(value) {
 }
 function emailIsValid(value) {
     return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(value);
-}
-
-/*----------- Fonction pour gestion page Remerciement ----------*/
-function orderPage() {
-    const contactFirstName = document.getElementById('contact_FirstName');
-    contactFirstName.innerHTML = response.contact.firstName + ',';
-    /*const thanksDiv = document.createElement('div');
-    thanksPage.appendChild(thanksDiv);
-    thanksDiv.id ='thanks_div';
-    thanksDiv.innerHTML = response.contact.firstName + ", </br> Nous te remercions pour ton achat, pour un montant de" + priceTeddies.reduce(calculator) + ' ' + "€. </br> Ton numéro de commande est le : " + response.orderId + ", garde le. Il te sera utile, lors d'éventuels échanges entre nous. </br> Toute l'équipe d'Oriourson te remercie et nous te souhaitons une belle journée.";*/
 }
 
 //////////////////// PROMISE REQUETE POST ////////////////////

@@ -3,26 +3,32 @@
 const str = window.location;
 const url = new URL(str);
 const idUrl = url.searchParams.get("orderId");
-console.log(idUrl);
+
+///////////////////// CONSTANTES //////////////////////
+
+const teddiesAdded_json = localStorage.getItem('product');
+const teddiesAdded = JSON.parse(teddiesAdded_json);
+
+///////////////////// CALCUL MONTANT TOTAL COMMANDE //////////////////////
+
+let priceTeddies = [];
+    
+    for(let i = 0 ; i < teddiesAdded.length ; i++) {
+        priceTeddies.push(teddiesAdded[i].price);   
+    }
+    const calculator = (accumulator, currentValue) => accumulator + currentValue;
+    const totalPrice = priceTeddies.reduce(calculator);
 
 ////////////////////// FUNCTIONS  //////////////////////
 
 /*----------- Fonction pour gestion page Remerciement ----------*/
 function orderPage(response, priceTeddies) {
     const thanksPage = document.getElementById('page_remerciements');
-    const thanksDiv = document.createElement('div');
-    thanksPage.appendChild(thanksDiv);
-    thanksDiv.id ='thanks_div';
-    thanksDiv.innerHTML = response.contact.firstName + ", </br> Nous te remercions pour ton achat, pour un montant de" + priceTeddies.reduce(calculator) + ' ' + "€. </br> Ton numéro de commande est le : " + response.orderId + ", garde le. Il te sera utile, lors d'éventuels échanges entre nous. </br> Toute l'équipe d'Oriourson te remercie et nous te souhaitons une belle journée.";
+    const priceCart = document.getElementById('prix_achat');
+    priceCart.innerHTML = totalPrice;
+    const orderForId = document.getElementById('order_id');
+    orderForId.innerHTML = idUrl;
 }
+////////////////////// APPEL DE LA FONCTION //////////////////////
 
-////////////////////// REQUETE //////////////////////
-let recoverHttp = new XMLHttpRequest();
-recoverHttp.onreadystatechange = function() {
-    if(this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-        const response = JSON.parse(this.responseText);
-        orderPage(response);
-    }
-}
-recoverHttp.open('GET', 'http://localhost:3000/api/teddies/order/' + idUrl);
-recoverHttp.send();
+orderPage();
