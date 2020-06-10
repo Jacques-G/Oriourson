@@ -302,7 +302,15 @@
         margin: 20px auto;
 
         & #infoPanier{
+            
 
+            & #alertCartEmpty{
+                height: 400px;
+                text-align: center;
+                margin-top: 30vh;
+                transform: translateY(-50%);
+               
+            }
             & h2 {
                 text-align: center;
 
@@ -443,6 +451,29 @@
                 text-align: center;
  
             }
+        }
+    }
+}
+/*------ PAGE REMERCIEMENT ------*/
+
+#page_remerciements{
+    text-align: center;
+    margin-top: 30vh;
+    transform: translateY(-50%);
+
+    & #thanks{
+        display: flex;
+        justify-content: center;
+
+        & #prix_achat{
+            font-weight: bold;
+        }
+    }
+
+    & #thanks2{
+
+        & #order_id{
+            font-weight: bold;
         }
     }
 }

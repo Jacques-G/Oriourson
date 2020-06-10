@@ -358,6 +358,12 @@ body {
   box-shadow: 0.2em 0.2em 0.2em 0.2em grey;
   margin: 20px auto;
 }
+#page_panier #monPanier #infoPanier #alertCartEmpty {
+  height: 400px;
+  text-align: center;
+  margin-top: 30vh;
+  transform: translateY(-50%);
+}
 #page_panier #monPanier #infoPanier h2 {
   text-align: center;
 }
@@ -475,6 +481,23 @@ body {
 }
 #page_panier #monPanier #my_form #div_confirm {
   text-align: center;
+}
+
+/*------ PAGE REMERCIEMENT ------*/
+#page_remerciements {
+  text-align: center;
+  margin-top: 30vh;
+  transform: translateY(-50%);
+}
+#page_remerciements #thanks {
+  display: flex;
+  justify-content: center;
+}
+#page_remerciements #thanks #prix_achat {
+  font-weight: bold;
+}
+#page_remerciements #thanks2 #order_id {
+  font-weight: bold;
 }
 
 #footer, .footer_catalogue {
