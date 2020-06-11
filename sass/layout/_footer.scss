@@ -39,9 +39,15 @@
             }
         }
     }
-    /*
+    
     &--product{
 
+        @include grande-tablette {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
         
         @include mobile{
             position: relative;
@@ -50,12 +56,19 @@
        
     }
     &--panier{
+        
+        @include grande-tablette {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
 
        
         @include petite-tablette{
             position: relative;
         }
-    }*/
+    }
     &--thanks{
         position: absolute;
         bottom: 0;

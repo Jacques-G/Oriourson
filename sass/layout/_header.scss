@@ -5,15 +5,16 @@ header{
 
     & .petit_bandeau{
         background-color: $fond_bandeau;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        //display: flex;
+        //flex-direction: row;
+        //justify-content: space-between;
         height: 50px;
         @include grande-tablette{
             width: 100vw;
             margin: auto;
         }
         & figure {
+            float: left;
             width: 150px;
             margin: auto 0;
 
@@ -23,70 +24,73 @@ header{
             }
             
         }
-        & nav{
-            margin: auto 30px auto 0;
-
-            & ul{
-                margin: auto;
-                display: flex;
-                list-style: none;
-                & li{
-                    transform: scale(1);
-                    transition: transform 400ms;
-                    &:hover{
-                        transform: scale(1.2);
-                    }
-
-                    & a{
-                        text-decoration: none;
-                        color: black;
-                    }
-                }
-                
-                & li:nth-child(1){
-                    padding-right: 15px;
-                }
-                & li:nth-child(3){
-                    padding-left: 15px;
-                }
-                & li:last-child{
-                    padding-left: 15px;
-                }
-            }
-            @include mobile{
-                display: none;
-            }
-
-        }
-        /*-----Essai Menu Navigateur-----*/
-        & .btn{
-            display: inline-block;
+        & .toggle_btn{
+            height: 30px;
+            width: 30px;
+            position: relative;
+            float: right;
+            margin-right: 10px;
+            margin-top: 5px;
             cursor: pointer;
 
-            &--navbar{
-                display: none;
-                float: right;
-                padding: 12px 15px;
-                margin-right: 5px;
-                margin-left: 5px;
-                @include mobile{
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
+            & span{
+                height: 3px;
+                background-color: #2c3e50;
+                width: 100%;
+                position: absolute;
+                top: 20px;
+                left: 0;
+
+                &::before{
+                    content: '';
+                    height: 3px;
+                    background-color: #2c3e50;
+                    width: 100%;
+                    position: absolute;
+                    top: -10px;
+                    left: 0;
+
+                }
+                &::after{
+                    content: '';
+                    height: 3px;
+                    background-color: #2c3e50;
+                    width: 100%;
+                    position: absolute;
+                    top: 10px;
+                    left: 0;
+
                 }
             }
+        }
+        
+        & .menu{
+            //clear: left;
+            height: 1000px;
+            background-color: #2c3e50;
+            width: 200px;
 
-            & .icon-bar{
+            & a{
+                color: $blanc;
+                font-family: 'Roboto', sans-serif;
+                text-align: center;
                 display: block;
-                width: 18px;
-                height: 3px;
-                background-color: grey;
-                border-radius: 1px;
-
-                & + .icon-bar{
-                    margin-top: 3px;
-                }       
+                padding-top: 20px;
+                text-decoration: none;
+                font-weight: bold;
             }
         }
+        & .nav{
+            margin-left: -200px;
+            transition-duration: 0.2s;
+            position: relative;
+
+            &__open{
+                margin-left: 0;
+                transition-duration: 0.2s;
+            }
+        }
+
+        
     }
 }

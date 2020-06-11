@@ -82,6 +82,7 @@ body {
 #first_section figure {
   width: 100vw;
   margin: 0;
+  position: relative;
 }
 #first_section figure img {
   max-width: 100%;
@@ -489,6 +490,21 @@ body {
   margin-top: 30vh;
   transform: translateY(-50%);
 }
+@media all and (max-width: 1024px) {
+  #page_remerciements {
+    font-size: 1.9em;
+  }
+}
+@media all and (max-width: 800px) {
+  #page_remerciements {
+    font-size: 1.4em;
+  }
+}
+@media all and (max-width: 640px) {
+  #page_remerciements {
+    font-size: 0.8em;
+  }
+}
 #page_remerciements #thanks {
   display: flex;
   justify-content: center;
@@ -505,23 +521,6 @@ body {
   color: white;
   display: flex;
   justify-content: space-around;
-  /*
-  &--product{
-
-
-      @include mobile{
-          position: relative;
-      }
-
-
-  }
-  &--panier{
-
-
-      @include petite-tablette{
-          position: relative;
-      }
-  }*/
 }
 #footer div h4, .footer_catalogue div h4 {
   text-align: center;
@@ -550,6 +549,32 @@ body {
     font-size: 0.7em;
   }
 }
+@media all and (max-width: 1024px) {
+  #footer--product, .footer_catalogue--product {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+@media all and (max-width: 640px) {
+  #footer--product, .footer_catalogue--product {
+    position: relative;
+  }
+}
+@media all and (max-width: 1024px) {
+  #footer--panier, .footer_catalogue--panier {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+@media all and (max-width: 800px) {
+  #footer--panier, .footer_catalogue--panier {
+    position: relative;
+  }
+}
 #footer--thanks, .footer_catalogue--thanks {
   position: absolute;
   bottom: 0;
@@ -559,11 +584,7 @@ body {
 
 header .petit_bandeau {
   background-color: #f3e9f1;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   height: 50px;
-  /*-----Essai Menu Navigateur-----*/
 }
 @media all and (max-width: 1024px) {
   header .petit_bandeau {
@@ -572,6 +593,7 @@ header .petit_bandeau {
   }
 }
 header .petit_bandeau figure {
+  float: left;
   width: 150px;
   margin: auto 0;
 }
@@ -579,66 +601,63 @@ header .petit_bandeau figure img {
   max-width: 100%;
   height: auto;
 }
-header .petit_bandeau nav {
-  margin: auto 30px auto 0;
-}
-header .petit_bandeau nav ul {
-  margin: auto;
-  display: flex;
-  list-style: none;
-}
-header .petit_bandeau nav ul li {
-  transform: scale(1);
-  transition: transform 400ms;
-}
-header .petit_bandeau nav ul li:hover {
-  transform: scale(1.2);
-}
-header .petit_bandeau nav ul li a {
-  text-decoration: none;
-  color: black;
-}
-header .petit_bandeau nav ul li:nth-child(1) {
-  padding-right: 15px;
-}
-header .petit_bandeau nav ul li:nth-child(3) {
-  padding-left: 15px;
-}
-header .petit_bandeau nav ul li:last-child {
-  padding-left: 15px;
-}
-@media all and (max-width: 640px) {
-  header .petit_bandeau nav {
-    display: none;
-  }
-}
-header .petit_bandeau .btn {
-  display: inline-block;
+header .petit_bandeau .toggle_btn {
+  height: 30px;
+  width: 30px;
+  position: relative;
+  float: right;
+  margin-right: 10px;
+  margin-top: 5px;
   cursor: pointer;
 }
-header .petit_bandeau .btn--navbar {
-  display: none;
-  float: right;
-  padding: 12px 15px;
-  margin-right: 5px;
-  margin-left: 5px;
-}
-@media all and (max-width: 640px) {
-  header .petit_bandeau .btn--navbar {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-}
-header .petit_bandeau .btn .icon-bar {
-  display: block;
-  width: 18px;
+header .petit_bandeau .toggle_btn span {
   height: 3px;
-  background-color: grey;
-  border-radius: 1px;
+  background-color: #2c3e50;
+  width: 100%;
+  position: absolute;
+  top: 20px;
+  left: 0;
 }
-header .petit_bandeau .btn .icon-bar + .icon-bar {
-  margin-top: 3px;
+header .petit_bandeau .toggle_btn span::before {
+  content: "";
+  height: 3px;
+  background-color: #2c3e50;
+  width: 100%;
+  position: absolute;
+  top: -10px;
+  left: 0;
+}
+header .petit_bandeau .toggle_btn span::after {
+  content: "";
+  height: 3px;
+  background-color: #2c3e50;
+  width: 100%;
+  position: absolute;
+  top: 10px;
+  left: 0;
+}
+header .petit_bandeau .menu {
+  height: 1000px;
+  background-color: #2c3e50;
+  width: 200px;
+}
+header .petit_bandeau .menu a {
+  color: white;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  display: block;
+  padding-top: 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+header .petit_bandeau .nav {
+  margin-left: -200px;
+  transition-duration: 0.2s;
+  position: relative;
+}
+header .petit_bandeau .nav__open {
+  margin-left: 0;
+  transition-duration: 0.2s;
 }
 
 /*# sourceMappingURL=style.css.map */
