@@ -93,6 +93,15 @@ function insertButtonCart(section, teddy) {
     buttonValid.setAttribute('type', 'submit');
     buttonValid.innerHTML = "Ajouter au Panier";
 }
+/////////////////// NAVIGATEUR ////////////////
+let btn = document.querySelector('.toggle_btn');
+let nav = document.querySelector('.nav');
+
+btn.onclick = function() {
+    nav.classList.toggle('nav__open');
+    nav.style.zIndex='1';
+    
+}
 
 ////////////////////// APPEL DES FONCTIONS //////////////////////
 

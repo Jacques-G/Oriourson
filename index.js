@@ -97,7 +97,16 @@ function promiseGet() {
         }
     })
 }
+/////////////////// NAVIGATEUR ////////////////
+let btn = document.querySelector('.toggle_btn');
+let nav = document.querySelector('.nav');
 
+btn.onclick = function() {
+    nav.classList.toggle('nav__open');
+    nav.style.zIndex='1';
+}
+
+/////////////////// APPEL DE LA FONCTION ////////////////
 promiseGet()
     .then(function(response) {
 

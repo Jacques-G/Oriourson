@@ -292,6 +292,15 @@ function isValid(value) {
 function emailIsValid(value) {
     return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(value);
 }
+/////////////////// NAVIGATEUR ////////////////
+let btn = document.querySelector('.toggle_btn');
+let nav = document.querySelector('.nav');
+
+btn.onclick = function() {
+    nav.classList.toggle('nav__open');
+    nav.style.zIndex='1';
+    
+}
 
 //////////////////// PROMISE REQUETE POST ////////////////////
 function sendPost(url, toSend){
