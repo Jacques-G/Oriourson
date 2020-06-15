@@ -636,6 +636,11 @@ header .petit_bandeau .menu {
   background-color: #2c3e50;
   width: 200px;
 }
+@media all and (max-width: 640px) {
+  header .petit_bandeau .menu {
+    height: 100vh;
+  }
+}
 header .petit_bandeau .menu a {
   color: white;
   font-family: "Roboto", sans-serif;
