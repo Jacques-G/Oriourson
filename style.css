@@ -79,7 +79,8 @@ body {
   position: relative;
 }
 #first_section figure img {
-  max-width: 100%;
+  width: 100%;
+  margin: auto;
   height: auto;
 }
 @media all and (max-width: 1024px) {
