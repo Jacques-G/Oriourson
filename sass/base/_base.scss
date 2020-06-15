@@ -4,14 +4,11 @@
 body{
     height: 100vh;
     width: 100vw;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     overflow-x: hidden;
     background-color: $fond_bandeau;
     font-family: 'Roboto', sans-serif;
     position: relative;
-    @include grande-tablette{
-        margin: auto;
-        width: 100vw;
-    }
+    
 }

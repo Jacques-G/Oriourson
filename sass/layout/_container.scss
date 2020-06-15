@@ -204,7 +204,6 @@
 
 #page_product{
 
-
     & .onlyTeddy{
         width: 90%;
         border: 1px solid grey ;
@@ -212,11 +211,11 @@
         box-shadow: 0.2em 0.2em 0.2em 0.2em grey;
         margin: 20px auto;
         @include grande-tablette{
-
             margin-top: 100px;
         }
         @include petite-tablette{
-            margin-top: auto;
+            margin-top: 20px;
+            
         }
 
         & figure{

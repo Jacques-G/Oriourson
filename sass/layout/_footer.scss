@@ -40,7 +40,7 @@
         }
     }
     
-    &--product{
+    /*&--product{
 
         @include grande-tablette {
             position: absolute;
@@ -48,14 +48,14 @@
             left: 0;
             right: 0;
         }
-        
         @include mobile{
             position: relative;
         }
 
        
-    }
+    }*/
     &--panier{
+        
         
         @include grande-tablette {
             position: absolute;

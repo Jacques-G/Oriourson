@@ -20,10 +20,6 @@ const cartEmpty = function() {
         divEmpty.id = 'alertCartEmpty';
         divEmpty.innerHTML = 'Votre Panier est vide';
         const footerCartEmpty = document.getElementById('footer');
-        footerCartEmpty.style.position = 'absolute';
-        footerCartEmpty.style.bottom = '0';
-        footerCartEmpty.style.left = '0';
-        footerCartEmpty.style.right = '0';
         console.log(localStorage);
     }
 }
@@ -278,7 +274,6 @@ function addForm() {
             
             window.location.href='./thankyou.html?orderId=' + response.orderId;
             
-            orderPage();
             
         }).catch(function(error) {
             console.log(error);
