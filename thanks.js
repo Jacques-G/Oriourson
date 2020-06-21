@@ -14,10 +14,14 @@ const teddiesAdded = JSON.parse(teddiesAdded_json);
 let priceTeddies = [];
     
     for(let i = 0 ; i < teddiesAdded.length ; i++) {
-        priceTeddies.push(teddiesAdded[i].price);   
+        priceTeddies.push([teddiesAdded[i].price].map(i => i / 100));   
     }
+    let arrayPrice = priceTeddies.map(function(x) {
+        return parseInt(x, 10);
+    })
     const calculator = (accumulator, currentValue) => accumulator + currentValue;
-    const totalPrice = priceTeddies.reduce(calculator);
+    let calculPrice = arrayPrice.reduce(calculator);
+    
 
 ////////////////////// FUNCTIONS  //////////////////////
 
@@ -25,7 +29,7 @@ let priceTeddies = [];
 function orderPage(response, priceTeddies) {
     const thanksPage = document.getElementById('page_remerciements');
     const priceCart = document.getElementById('prix_achat');
-    priceCart.innerHTML = totalPrice;
+    priceCart.innerHTML = calculPrice;
     const orderForId = document.getElementById('order_id');
     orderForId.innerHTML = idUrl;
 }

@@ -70,13 +70,16 @@ const myCommand = function() {
 
     let priceTeddies = [];
     if(teddiesAdded !== null) {
-        //for(let i = 0 ; i < teddiesAdded.length ; i++) {
-        for(let i in teddiesAdded) {
-            priceTeddies.push([teddiesAdded[i].price].map(i => i / 100));   
+        for(let i = 0 ; i < teddiesAdded.length ; i++) {
+        //for(let i in teddiesAdded) {
+            priceTeddies.push([teddiesAdded[i].price].map(i => i / 100));
         }
-        console.log(priceTeddies);
-        const calculator = (accumulator, currentValue) => accumulator + currentValue;   
-        totalPriceCalcul.innerHTML = priceTeddies.reduce(calculator);//(calculator) + ' ' + '€';
+        let arrayPrice = priceTeddies.map(function(x) {
+            return parseInt(x, 10);
+        })
+        const calculator = (accumulator, currentValue) => accumulator + currentValue;
+        let calculPrice = arrayPrice.reduce(calculator);
+        totalPriceCalcul.innerHTML = calculPrice + ' ' + '€';
         
         
 
