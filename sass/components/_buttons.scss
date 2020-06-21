@@ -58,4 +58,11 @@
         color: $fond_bandeau;
         background-color: $vert;
     }
+    &:disabled{
+        color: black;
+        &:hover {
+            color: black;
+            background-color: black;
+        }
+    }
 }   

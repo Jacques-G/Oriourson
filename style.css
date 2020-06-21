@@ -68,6 +68,13 @@ body {
   color: #f3e9f1;
   background-color: green;
 }
+#confirm_order:disabled {
+  color: black;
+}
+#confirm_order:disabled:hover {
+  color: black;
+  background-color: black;
+}
 
 /* -----SECTION TITRE -----*/
 #first_section {
@@ -478,6 +485,12 @@ body {
 #page_panier #monPanier #my_form #div_confirm {
   text-align: center;
 }
+#page_panier #monPanier #my_form #div_confirm #div_Error_Button {
+  color: red;
+  font-size: 0.8em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
 
 /*------ PAGE REMERCIEMENT ------*/
 #page_remerciements {
@@ -633,7 +646,7 @@ header .petit_bandeau .toggle_btn span::after {
   left: 0;
 }
 header .petit_bandeau .menu {
-  height: 1000px;
+  height: 100vh;
   background-color: #2c3e50;
   width: 200px;
 }

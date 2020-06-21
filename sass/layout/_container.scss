@@ -450,6 +450,13 @@
 
             & #div_confirm{
                 text-align: center;
+
+                & #div_Error_Button{
+                    color: red;
+                    font-size: 0.8em;
+                    font-weight: bold;
+                    margin-bottom: 20px;
+                }
  
             }
         }
