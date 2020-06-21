@@ -19,8 +19,7 @@ const cartEmpty = function() {
         infoCart.appendChild(divEmpty);
         divEmpty.id = 'alertCartEmpty';
         divEmpty.innerHTML = 'Votre Panier est vide';
-        const footerCartEmpty = document.getElementById('footer');
-        console.log(localStorage);
+        //const footerCartEmpty = document.getElementById('footer');
     }
 }
 /*------ fonction pour alimenter le tableau de commande -----*/
@@ -54,7 +53,7 @@ const myCommand = function() {
         const myDetailPrice = document.createElement('div');
         myDetail.appendChild(myDetailPrice);
         myDetailPrice.id = 'myDetailPrice';
-        myDetailPrice.innerHTML = teddiesAdded[i].price + ' ' + '€';
+        myDetailPrice.innerHTML = [teddiesAdded[i].price].map(i => i / 100) + ' ' + '€';
     
     }
     // Partie Total Commande
@@ -70,13 +69,18 @@ const myCommand = function() {
     totalPriceCalcul.id = 'totalPriceCalcul';
 
     let priceTeddies = [];
-    
-    for(let i = 0 ; i < teddiesAdded.length ; i++) {
-        priceTeddies.push(teddiesAdded[i].price);   
-    }
-    const calculator = (accumulator, currentValue) => accumulator + currentValue;
-    totalPriceCalcul.innerHTML = priceTeddies.reduce(calculator) + ' ' + '€';
+    if(teddiesAdded !== null) {
+        //for(let i = 0 ; i < teddiesAdded.length ; i++) {
+        for(let i in teddiesAdded) {
+            priceTeddies.push([teddiesAdded[i].price].map(i => i / 100));   
+        }
+        console.log(priceTeddies);
+        const calculator = (accumulator, currentValue) => accumulator + currentValue;   
+        totalPriceCalcul.innerHTML = priceTeddies.reduce(calculator);//(calculator) + ' ' + '€';
         
+        
+
+    }   
  
     const buttonEmptyCart = document.createElement('button');
     const divButton = document.createElement('div');
@@ -128,9 +132,9 @@ function addForm() {
         const divError = document.getElementById('div_input_error');
         divError.innerHTML = '';
 
-        if(isValid(value) == false) {
+        if(isValid(value) === false) {
             return (divError.innerHTML ='Veuillez remplir votre Prénom correctement !') && (inputConfirmOrder.setAttribute('disabled', 'true'));
-        } else if(isValid(value) == true) {
+        } else if(isValid(value) === true) {
             return (divFormFirstName.removeChild(divError)) && (inputConfirmOrder.removeAttribute('disabled'));
         }
 
@@ -157,9 +161,9 @@ function addForm() {
         const divError2 = document.getElementById('div_input_error2');
         divError2.innerHTML = '';
 
-        if(isValid(value) == false) {
+        if(isValid(value) === false) {
             return (divError2.innerHTML ='Veuillez remplir votre Nom correctement !') && (inputConfirmOrder.setAttribute('disabled', 'true'));
-        } else if(isValid(value) == true) {
+        } else if(isValid(value) === true) {
             return (divFormName.removeChild(divError2)) && (inputConfirmOrder.removeAttribute('disabled'));
         }
     })
@@ -183,7 +187,7 @@ function addForm() {
         divInputError.id ='div_input_errorAddress';
         const divErrorAddress = document.getElementById('div_input_errorAddress');
         divErrorAddress.innerHTML = '';
-        if(value == undefined || value == null || value == '') {
+        if(value === undefined || value === null || value === '') {
             return (divErrorAddress.innerHTML = 'Veuillez remplir votre Adresse correctement !') && (inputConfirmOrder.setAttribute('disabled', 'true'));
         }
     })
@@ -208,9 +212,9 @@ function addForm() {
         const divError3 = document.getElementById('div_input_error3');
         divError3.innerHTML = '';
 
-        if(isValid(value) == false) {
+        if(isValid(value) === false) {
             return (divError3.innerHTML ='Veuillez remplir votre Ville correctement !') && (inputConfirmOrder.setAttribute('disabled', 'true'));
-        } else if(isValid(value) == true) {
+        } else if(isValid(value) === true) {
             return (divFormCity.removeChild(divError3)) && (inputConfirmOrder.removeAttribute('disabled'));
         }
     })
@@ -235,9 +239,9 @@ function addForm() {
         const divError4 = document.getElementById('div_input_error4');
         divError4.innerHTML = '';
 
-        if(emailIsValid(value) == false) {
+        if(emailIsValid(value) === false) {
             return (divError4.innerHTML ='Veuillez remplir votre Email correctement !') && (inputConfirmOrder.setAttribute('disabled', 'true'));
-        } else if(emailIsValid(value) == true) {
+        } else if(emailIsValid(value) === true) {
             return (divFormEmail.removeChild(divError4)) && (inputConfirmOrder.removeAttribute('disabled'));
         }
     })
@@ -254,30 +258,47 @@ function addForm() {
 
     inputConfirmOrder.addEventListener('click', function(e) {
         e.preventDefault();
-        let contact = {
-            firstName: inputFirstName.value,
-            lastName: inputName.value,
-            address: textAreaAddress.value,
-            city: inputCity.value,
-            email: inputEmail.value,
-        };
-        let products = [];
-        for(let p = 0 ; p < teddiesAdded.length ; p++) {
         
-            products.push(teddiesAdded[p].theId);
-           
+        const divErrorButton = document.createElement('div');
+        divConfirm.appendChild(divErrorButton);
+        divErrorButton.id='div_Error_Button';
+        const errorButton = document.getElementById('div_Error_Button');
+        errorButton.innerHTML ='';
+
+        if(inputFirstName.value === '' || inputName.value === '' || textAreaAddress.value === '' || inputCity.value === '' || inputEmail.value ==='') {
+            return (errorButton.innerHTML = 'Veuillez remplir vos informations.');
+        }else if(teddiesAdded === null) {
+            return (errorButton.innerHTML = 'Veuillez faire vos achats.') && (inputConfirmOrder.setAttribute('disabled', 'true'));
+        }else {
+            divConfirm.removeChild(errorButton);
+
+            let contact = {
+                firstName: inputFirstName.value,
+                lastName: inputName.value,
+                address: textAreaAddress.value,
+                city: inputCity.value,
+                email: inputEmail.value,
+            };
+            let products = [];
+            for(let p = 0 ; p < teddiesAdded.length ; p++) {
+            
+                products.push(teddiesAdded[p].theId);
+               
+            }
+            let toSend = {contact, products};
+        
+            
+            sendPost('http://localhost:3000/api/teddies/order', toSend).then(function(response) {
+                
+                window.location.href='./thankyou.html?orderId=' + response.orderId;
+                
+            
+            }).catch(function(error) {
+                console.log(error);
+            })
+            
+
         }
-        let toSend = {contact, products};
-    
-        
-        sendPost('http://localhost:3000/api/teddies/order', toSend).then(function(response) {
-            
-            window.location.href='./thankyou.html?orderId=' + response.orderId;
-            
-            
-        }).catch(function(error) {
-            console.log(error);
-        })
     });
 }
 /*----------- Regex pour verification input ----------*/
@@ -285,7 +306,7 @@ function isValid(value) {
     return /^[a-zA-Z]{3,}$/.test(value);
 }
 function emailIsValid(value) {
-    return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(value);
+    return /^[a-zA-Z0-9.:#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,3}$/.test(value);
 }
 /////////////////// NAVIGATEUR ////////////////
 let btn = document.querySelector('.toggle_btn');
@@ -316,7 +337,6 @@ function sendPost(url, toSend){
         }
     });
 }
-
 
 cartEmpty();
 myCommand();

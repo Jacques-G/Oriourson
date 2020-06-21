@@ -87,8 +87,8 @@ function promiseGet() {
         recupHttp.open('GET', 'http://localhost:3000/api/teddies');
         recupHttp.send();
         recupHttp.onreadystatechange = function() {
-            if(this.readyState == XMLHttpRequest.DONE) {
-                if(this.status == 200) {
+            if(this.readyState === XMLHttpRequest.DONE) {
+                if(this.status === 200) {
                     resolve(JSON.parse(this.responseText));
                 }else{
                     reject(recupHttp);
@@ -126,7 +126,7 @@ promiseGet()
             const newDiv3 = document.createElement('div');
             newSection.appendChild(newDiv3);
             newDiv3.className = 'tarifs';
-            insertPrice(newDiv3, response[i].price + ' ' + '€');
+            insertPrice(newDiv3, [response[i].price].map(i => i / 100)+ ' ' + '€');
             insertLienPerso(newDiv3, response[i]._id);
             
         }

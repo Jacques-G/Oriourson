@@ -6,7 +6,7 @@ Pour pouvoir utiliser correctement l'API, veuillez suivre ces instructions.
 
 Telechargez le back-end de l'application à cette adresse : https://github.com/OpenClassrooms-Student-Center/JWDP5.git  
 
-Ouvrez Node.js et placez vous sur son dossier d'installation.
+Telechargez et Ouvrez Node.js et placez vous sur le dossier d'installation du back-end.
 
 Tapez la commande suivante : "npm start" (le serveur se lancera).
 

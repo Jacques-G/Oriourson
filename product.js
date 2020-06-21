@@ -14,8 +14,8 @@ function promiseGet() {
         recoverHttp.open('GET', 'http://localhost:3000/api/teddies/'+ idUrl);
         recoverHttp.send();
         recoverHttp.onreadystatechange = function() {
-            if(this.readyState == XMLHttpRequest.DONE) {
-                if(this.status == 200) {
+            if(this.readyState === XMLHttpRequest.DONE) {
+                if(this.status === 200) {
                     resolve(JSON.parse(this.responseText));
                 }else {
                     reject(XMLHttpRequest);
@@ -86,7 +86,7 @@ function insertButtonCart(section, teddy) {
     divPrice.className = 'prixTeddy';
     const paragraphPrice = document.createElement('p');
     divPrice.appendChild(paragraphPrice);
-    paragraphPrice.innerHTML = teddy.price + ' ' + '€';
+    paragraphPrice.innerHTML = [teddy.price].map(price => price / 100) + ' ' + '€';
     const buttonValid = document.createElement('button')
     divRate.appendChild(buttonValid);
     buttonValid.className = 'boutonPanier';
